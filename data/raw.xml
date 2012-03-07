@@ -1,0 +1,365 @@
+<?xml version="1.0" ?>
+<xml>
+	<recipe name="#1 Pumpkin Spice Cookies Recipe">
+		<ingredient>
+			2 1/2 cups all-purpose flour
+		</ingredient>
+		<ingredient>
+			1 cup rolled oats
+		</ingredient>
+		<ingredient>
+			4 teaspoons baking powder
+		</ingredient>
+		<ingredient>
+			1 1/2 teaspoons ground cinnamon
+		</ingredient>
+		<ingredient>
+			1/2 teaspoon ground nutmeg
+		</ingredient>
+		<ingredient>
+			1 teaspoon pumpkin pie spice
+		</ingredient>
+		<ingredient>
+			1/2 teaspoon ground ginger
+		</ingredient>
+		<ingredient>
+			1/4 teaspoon salt
+		</ingredient>
+		<ingredient>
+			2 tablespoons butter
+		</ingredient>
+		<ingredient>
+			1 1/3 cups light brown sugar
+		</ingredient>
+		<ingredient>
+			2 eggs
+		</ingredient>
+		<ingredient>
+			1 teaspoon vanilla extract
+		</ingredient>
+		<ingredient>
+			1 (15 ounce) can pumpkin
+		</ingredient>
+		<ingredient>
+			1/2 cup apple butter
+		</ingredient>
+		<ingredient>
+			1 cup chopped walnuts
+		</ingredient>
+	</recipe>
+	<recipe name="123 Green Tea Ice Cream Recipe">
+		<ingredient>
+			1 cup vanilla ice cream
+		</ingredient>
+		<ingredient>
+			1 teaspoon green tea powder (matcha)
+		</ingredient>
+	</recipe>
+	<recipe name="Boilermaker Tailgate Chili Recipe">
+		<ingredient>
+			2 pounds ground beef chuck
+		</ingredient>
+		<ingredient>
+			1 pound bulk Italian sausage
+		</ingredient>
+		<ingredient>
+			3 (15 ounce) cans chili beans, drained
+		</ingredient>
+		<ingredient>
+			1 (15 ounce) can chili beans in spicy sauce
+		</ingredient>
+		<ingredient>
+			2 (28 ounce) cans diced tomatoes with juice
+		</ingredient>
+		<ingredient>
+			1 (6 ounce) can tomato paste
+		</ingredient>
+		<ingredient>
+			1 large yellow onion, chopped
+		</ingredient>
+		<ingredient>
+			3 stalks celery, chopped
+		</ingredient>
+		<ingredient>
+			1 green bell pepper, seeded and chopped
+		</ingredient>
+		<ingredient>
+			1 red bell pepper, seeded and chopped
+		</ingredient>
+		<ingredient>
+			2 green chile peppers, seeded and chopped
+		</ingredient>
+		<ingredient>
+			1 tablespoon bacon bits
+		</ingredient>
+		<ingredient>
+			4 cubes beef bouillon
+		</ingredient>
+		<ingredient>
+			1/2 cup beer
+		</ingredient>
+		<ingredient>
+			1/4 cup chili powder
+		</ingredient>
+		<ingredient>
+			1 tablespoon Worcestershire sauce
+		</ingredient>
+		<ingredient>
+			1 tablespoon minced garlic
+		</ingredient>
+		<ingredient>
+			1 tablespoon dried oregano
+		</ingredient>
+		<ingredient>
+			2 teaspoons ground cumin
+		</ingredient>
+		<ingredient>
+			2 teaspoons hot pepper sauce (e.g. Tabasco&amp;#8482;)
+		</ingredient>
+		<ingredient>
+			1 teaspoon dried basil
+		</ingredient>
+		<ingredient>
+			1 teaspoon salt
+		</ingredient>
+		<ingredient>
+			1 teaspoon ground black pepper
+		</ingredient>
+		<ingredient>
+			1 teaspoon cayenne pepper
+		</ingredient>
+		<ingredient>
+			1 teaspoon paprika
+		</ingredient>
+		<ingredient>
+			1 teaspoon white sugar
+		</ingredient>
+		<ingredient>
+			1 (10.5 ounce) bag corn chips such as Fritos&amp;#174;
+		</ingredient>
+		<ingredient>
+			1 (8 ounce) package shredded Cheddar cheese
+		</ingredient>
+	</recipe>
+	<recipe name="Chicken Pot Pie IX Recipe">
+		<ingredient>
+			1 pound skinless, boneless chicken breast halves - cubed
+		</ingredient>
+		<ingredient>
+			1 cup sliced carrots
+		</ingredient>
+		<ingredient>
+			1 cup frozen green peas
+		</ingredient>
+		<ingredient>
+			1/2 cup sliced celery
+		</ingredient>
+		<ingredient>
+			1/3 cup butter
+		</ingredient>
+		<ingredient>
+			1/3 cup chopped onion
+		</ingredient>
+		<ingredient>
+			1/3 cup all-purpose flour
+		</ingredient>
+		<ingredient>
+			1/2 teaspoon salt
+		</ingredient>
+		<ingredient>
+			1/4 teaspoon black pepper
+		</ingredient>
+		<ingredient>
+			1/4 teaspoon celery seed
+		</ingredient>
+		<ingredient>
+			1 3/4 cups chicken broth
+		</ingredient>
+		<ingredient>
+			2/3 cup milk
+		</ingredient>
+		<ingredient>
+			&amp;nbsp;
+		</ingredient>
+		<ingredient>
+			2 (9 inch)  unbaked pie crusts
+		</ingredient>
+	</recipe>
+	<recipe name="Corned Beef and Cabbage II Recipe">
+		<ingredient>
+			4 1/2 pounds corned beef brisket
+		</ingredient>
+		<ingredient>
+			5 black peppercorns
+		</ingredient>
+		<ingredient>
+			1/2 teaspoon garlic powder
+		</ingredient>
+		<ingredient>
+			1 onion, peeled and left whole
+		</ingredient>
+		<ingredient>
+			2 bay leaves
+		</ingredient>
+		<ingredient>
+			1 pinch salt
+		</ingredient>
+		<ingredient>
+			1 small head cabbage, cored and cut into wedges
+		</ingredient>
+		<ingredient>
+			6 large potatoes, quartered
+		</ingredient>
+		<ingredient>
+			4 large carrots, peeled and sliced
+		</ingredient>
+		<ingredient>
+			1/4 cup chopped fresh parsley
+		</ingredient>
+		<ingredient>
+			2 tablespoons butter
+		</ingredient>
+	</recipe>
+	<recipe name="Garden Stuffed Baked Potatoes Recipe">
+		<ingredient>
+			4 large potatoes
+		</ingredient>
+		<ingredient>
+			2 tablespoons butter
+		</ingredient>
+		<ingredient>
+			1 small onion, chopped
+		</ingredient>
+		<ingredient>
+			1 (10 ounce) package chopped frozen broccoli, thawed
+		</ingredient>
+		<ingredient>
+			1/2 cup ranch-style salad dressing
+		</ingredient>
+		<ingredient>
+			1 tablespoon vegetable oil
+		</ingredient>
+		<ingredient>
+			2 teaspoons dried parsley
+		</ingredient>
+		<ingredient>
+			salt and pepper to taste
+		</ingredient>
+	</recipe>
+	<recipe name="Guacamole Recipe">
+		<ingredient>
+			3 avocados - peeled, pitted, and mashed
+		</ingredient>
+		<ingredient>
+			1 lime, juiced
+		</ingredient>
+		<ingredient>
+			1 teaspoon salt
+		</ingredient>
+		<ingredient>
+			1/2 cup diced onion
+		</ingredient>
+		<ingredient>
+			3 tablespoons chopped fresh cilantro
+		</ingredient>
+		<ingredient>
+			2 roma (plum) tomatoes, diced
+		</ingredient>
+		<ingredient>
+			1 teaspoon minced garlic
+		</ingredient>
+		<ingredient>
+			1 pinch ground cayenne pepper (optional)
+		</ingredient>
+	</recipe>
+	<recipe name="Hot Apple Cider Recipe">
+		<ingredient>
+			6 cups apple cider
+		</ingredient>
+		<ingredient>
+			1/4 cup real maple syrup
+		</ingredient>
+		<ingredient>
+			2 cinnamon sticks
+		</ingredient>
+		<ingredient>
+			6 whole cloves
+		</ingredient>
+		<ingredient>
+			6 whole allspice berries
+		</ingredient>
+		<ingredient>
+			1 orange peel, cut into strips
+		</ingredient>
+		<ingredient>
+			1 lemon peel, cut into strips
+		</ingredient>
+	</recipe>
+	<recipe name="Salsa Chicken Recipe">
+		<ingredient>
+			4 skinless, boneless chicken breast halves
+		</ingredient>
+		<ingredient>
+			4 teaspoons taco seasoning mix
+		</ingredient>
+		<ingredient>
+			1 cup salsa
+		</ingredient>
+		<ingredient>
+			1 cup shredded Cheddar cheese
+		</ingredient>
+		<ingredient>
+			2 tablespoons sour cream (optional)
+		</ingredient>
+	</recipe>
+	<recipe name="Southwestern Egg Rolls Recipe">
+		<ingredient>
+			2 tablespoons vegetable oil
+		</ingredient>
+		<ingredient>
+			1 skinless, boneless chicken breast half
+		</ingredient>
+		<ingredient>
+			2 tablespoons minced green onion
+		</ingredient>
+		<ingredient>
+			2 tablespoons minced red bell pepper
+		</ingredient>
+		<ingredient>
+			1/3 cup frozen corn kernels
+		</ingredient>
+		<ingredient>
+			1/4 cup black beans, rinsed and drained
+		</ingredient>
+		<ingredient>
+			2 tablespoons frozen chopped spinach, thawed and drained
+		</ingredient>
+		<ingredient>
+			2 tablespoons diced jalapeno peppers
+		</ingredient>
+		<ingredient>
+			1/2 tablespoon minced fresh parsley
+		</ingredient>
+		<ingredient>
+			1/2 teaspoon ground cumin
+		</ingredient>
+		<ingredient>
+			1/2 teaspoon chili powder
+		</ingredient>
+		<ingredient>
+			1/3 teaspoon salt
+		</ingredient>
+		<ingredient>
+			1 pinch ground cayenne pepper
+		</ingredient>
+		<ingredient>
+			3/4 cup shredded Monterey Jack cheese
+		</ingredient>
+		<ingredient>
+			5 (6 inch) flour tortillas
+		</ingredient>
+		<ingredient>
+			1 quart oil for deep frying
+		</ingredient>
+	</recipe>
+</xml>
