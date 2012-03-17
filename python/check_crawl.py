@@ -2,7 +2,7 @@
 
 import pprint
 
-f = open('../data/crawl/check2')
+f = open('../data/crawl/check3')
 
 hash = {}
 ones = 0
@@ -33,7 +33,7 @@ oneCount = 0
 for k, v in hash.iteritems():
 	if v > 1:
 		out1[k] = v
-	elif 'product' in k and k not in out1:
+	elif 'product' in k and k not in out1 and v == 2:
 		out2[k] = v
 		productCount += 1
 
