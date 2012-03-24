@@ -1,21 +1,31 @@
 #!/usr/bin/python
 
 import pprint
+import sys
 
-f = open('../data/crawl/check3')
+f = open(sys.argv[1])
 
 hash = {}
+fetchedProducts = []
 ones = 0
 twos = 0
+productCount = 0
+productFetchedCount = 0
 others = 0
 
 lastK = None
+lastIsProduct = False
 
 for line in f:
 	if line.startswith('http'):
 		url = line.split('\t')[0]
 		hash[url] = 0
 		lastK = url
+                lastIsProduct = False
+                if 'product' in url:
+                        lastIsProduct = True
+                        fetchedProducts.append(url)
+                        productCount += 1
 	elif line.startswith('Status: '):
 		if '1' in line:
 			ones += 1
@@ -23,26 +33,16 @@ for line in f:
 		elif '2' in line:
 			twos += 1
 			hash[lastK] = 2
+                        if lastIsProduct:
+                                productFetchedCount += 1
 		else:
 			others += 1
 
-out1 = {}
-out2 = {}
-productCount = 0
-oneCount = 0
-for k, v in hash.iteritems():
-	if v > 1:
-		out1[k] = v
-	elif 'product' in k and k not in out1 and v == 2:
-		out2[k] = v
-		productCount += 1
-
-print "##################################### OUT 1 ################"
-# pprint.pprint(out1)
-
-print "##################################### OUT 2 ################"
-#pprint.pprint(out2)
-print "###################### product count = " + str(productCount)
-print "###################### one count = " + str(ones)
-print "###################### two count = " + str(twos)
-print "###################### other count = " + str(others)
+print "total urls = " + str(len(hash.keys()))
+print "total product urls = " + str(productCount)
+print "product urls fetched = " + str(productFetchedCount)
+print "non-product urls fetched = " + str(twos - productFetchedCount)
+print ""
+print "total unfetched urls = " + str(ones)
+print "total fetched urls = " + str(twos)
+print "missing urls = " + str(others)
