@@ -1,2 +1,7 @@
+.*
+*.class
+*.bin
+*.jar
+bin/*
 data/*
 runtime/*
