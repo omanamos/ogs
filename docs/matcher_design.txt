@@ -1,0 +1,8 @@
+Matcher Design
+--------------
+step 1 - match the most simplified versions of both
+    the grocery item and the ingredient, which gives
+    a set of potential matches
+        to simplify grocery item: remove brand names,
+        adjectives, containers, prep phrases, species
+        names, prep terms

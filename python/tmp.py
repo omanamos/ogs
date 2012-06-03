@@ -1,16 +1,13 @@
 #!/usr/bin/python
 
-import re
 import sqlite3
-
-UPDATE_TMPL = 'UPDATE fresh SET base_name = ?, usable = ?, \
-unusable_reason = ? WHERE asin = ?'
 
 conn = sqlite3.connect('../../data/data')
 c = conn.cursor()
 
-c.execute(UPDATE_TMPL, ("test1", True, "reason1", "B00099XOCI"))
-print c.rowcount
+c.execute("select html from fresh where asin='B0010AYJXI' limit 1")
 
-conn.commit()
-c.close()
+out = open("out.tmp", 'w')
+output = str(c.fetchone()[0].encode('ascii', 'replace'))
+print output
+out.write(output)

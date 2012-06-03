@@ -1,0 +1,2306 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   Alan Wake by Microsoft (May 18,  2010) (Xbox 360) | AmazonFresh
+  </title>
+  <link rel="stylesheet" type="text/css" href="http://g-ecx.images-amazon.com/images/G/01/omaha/css/jqueryAutocomplete-1.2._V260835473_.css" />
+  <link href="http://z-ecx.images-amazon.com/images/G/01/omaha/css/default._V1326320409_.css" type="text/css" rel="stylesheet" />
+  <link href="http://z-ecx.images-amazon.com/images/G/01/omaha/css/searchAndBrowse._V1329441116_.css" type="text/css" rel="stylesheet" />
+  <link href="http://z-ecx.images-amazon.com/images/G/01/omaha/css/gateway._V1308864390_.css" type="text/css" rel="stylesheet" />
+  <link href="http://z-ecx.images-amazon.com/images/G/01/omaha/css/merchandising._V243298351_.css" type="text/css" rel="stylesheet" />
+  <link href="http://z-ecx.images-amazon.com/images/G/01/omaha/css/pastPurchases._V1326320773_.css" type="text/css" rel="stylesheet" />
+  <link href="http://z-ecx.images-amazon.com/images/G/01/omaha/css/info._V1326320390_.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript">
+   var firstJsTime = (new Date()).valueOf();
+
+function browserSupportsWebTiming() {
+	return getPerformanceData() != null;
+}
+
+function getPerformanceData() {
+	if (window.msPerformance != null) {
+		return window.msPerformance;
+	} else if (window.webkitPerformance != null) {
+		return window.webkitPerformance;
+	} else {
+		return null;
+	}
+}
+
+function populateWebTimingData(cmData) {
+	var perf = getPerformanceData();
+	cmData.webTimingAvailable = true;
+	cmData.wtNavigationStart = perf.timing.navigationStart;
+	cmData.wtRequestStart= perf.timing.requestStart;
+	cmData.wtResponseStart = perf.timing.responseStart;
+	cmData.wtResponseEnd = perf.timing.responseEnd;
+	cmData.wtDomLoading = perf.timing.loadEventStart;
+	cmData.wtDomComplete = perf.timing.loadEventStart;
+}
+
+function ClientMetricsData() {
+	this.webTimingAvailable = false;
+	this.wtNavigationStart = 0;
+	this.wtRequestStart = 0;
+	this.wtResponseStart = 0;
+	this.wtResponseEnd = 0;
+	this.wtDomLoading = 0;
+	this.wtDomComplete = 0;
+	
+	this.actionStart = 0;
+	this.actionEnd = 0;
+    this.clientStart = 0;
+    this.clientEnd = 0;
+    
+    this.requestId = "";
+    this.actionName = "";
+
+    this.submitData = function() {
+        var t = 0;
+        var ue = 0;
+        var ld = 0;
+
+        if (this.webTimingAvailable) {
+            t = this.wtResponseEnd;
+            ld = this.wtResponseEnd - this.wtResponseStart;
+        } else {
+            t = this.clientEnd;
+            ld = this.clientEnd - this.clientStart;
+        }
+               
+        jQuery.get(
+            "RecordClientMetrics",
+            {
+            	'ld' : ld,
+                'id' : this.requestId,
+                't' : t,
+                'ue' : ue,
+                'webTimingAvailable' : this.webTimingAvailable,
+                'webTimingNavigationStart' : this.wtNavigationStart,
+                'webTimingDomLoading' : this.wtDomLoading,
+                'webTimingDomComplete' : this.wtDomComplete,
+                'webTimingResponseStart' : this.wtResponseStart,
+                'webTimingResponseEnd' : this.wtResponseEnd,
+                'actionStart' : this.actionStart,
+                'actionEnd' : this.actionEnd,
+                'clientStart' : this.clientStart,
+                'clientEnd' : this.clientEnd,
+	            'requestId' : this.requestId,
+	            'actionName' : this.actionName,
+	            'hostId' : "-848825036"
+            },
+            function (ajax) {
+            }
+        );
+    }
+}
+
+function recordMetrics() {
+	var actionName = "product";
+    var requestId = "1QWGX5J6E587M89Y10M6";
+    var csmData = new ClientMetricsData();
+
+    if (browserSupportsWebTiming()) {
+        populateWebTimingData(csmData);
+    }
+
+    csmData.clientStart = firstJsTime;
+    csmData.clientEnd = (new Date()).valueOf();
+    csmData.actionStart = 1331544344092;
+    csmData.actionEnd = 1331544344612;
+    csmData.requestId = requestId;
+    csmData.actionName = actionName;
+    csmData.submitData();
+}
+  </script>
+  <script type="text/javascript" src="http://g-ecx.images-amazon.com/images/G/01/javascripts/lib/jquery/jquery-1.3.2.min._V244049497_.js">
+  </script>
+  <script type="text/javascript" src="http://g-ecx.images-amazon.com/images/G/01/javascripts/lib/jquery/jquery-ui-1.7.2.draggable_droppable.min._V219084327_.js">
+  </script>
+  <script type="text/javascript" src="http://g-ecx.images-amazon.com/images/G/01/omaha/javascript/jqueryAutocomplete-1.1._V229004671_.js">
+  </script>
+  <script type="text/javascript">
+   jQuery.noConflict();
+  </script>
+  <link href="http://z-ecx.images-amazon.com/images/G/01/omaha/css/shoveler._V1320357314_.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript">
+   function FreshShoveler(shovelerId) {
+	this.id = shovelerId;
+	this.shoveler = jQuery("#"+shovelerId);
+    this.type = FreshShovelerMeta.ShovelerTypes[getParam(this.shoveler, "type")];
+
+    if(null != this.type) {
+	    this.header = getParam(this.shoveler, "header");
+	    this.footer = getParam(this.shoveler, "footer");
+	    this.footerTarget = getParam(this.shoveler, "footerTarget");
+	    this.isMinDisplay = getParam(this.shoveler, "isMinDisplay");
+	    this.displayType = getParam(this.shoveler, "displayType");
+	    if (isEmpty(this.displayType)) { this.displayType = 'standard';}
+	    this.items = null;
+	    this.capacity = 0;
+	    this.perItemMargin = 0;
+	    this.currentItem = 0;
+	    this.currentPage = 0;
+	    this.pageCount = 0;
+	    this.paginatorGutter = 50; // hero will overwrite this.
+
+	    // hero uses a custom load function.
+	    if('function' != typeof this.type.load) {
+	    	this.load = FreshShovelerMeta.loadFreshShoveler;
+	    } else {
+	    	this.load = this.type.load;
+	    }
+	    this.getExtraParams = this.type.getParams;
+	    this.getItems = this.type.getItems;
+	    this.populateItems = FreshShovelerMeta.populateItems;
+    } else {
+        this.load = function() {
+            // do something to log bad widget type? otherwise just keep empty (js makes a fuss trying to call a null function)
+        };
+    }
+}
+
+// getting in the habit of keeping namespace clean by introducing as few global vars as possible.
+var FreshShovelerMeta = {
+	shovelerTemplate: jQuery("&lt;h2 /&gt;&lt;div class='body'&gt;&lt;div class='shovelerPagination'&gt;Page &lt;span class='currentPage'&gt;0&lt;/span&gt; of &lt;span class="pageCount"&gt;0&lt;/span&gt;&lt;/div&gt;&lt;div class="backButton"&gt;&lt;div class="shovelerItems"&gt;&lt;div class="nextButton"&gt;&lt;/div&gt;&lt;div class="footer"&gt;&lt;/div&gt;"),
+	loadingImage: jQuery("&lt;img src="https://images-na.ssl-images-amazon.com/images/G/01/ui/loadIndicators/loading-large.gif" class="loading" alt="Loading..."&gt;"),
+	ShovelerTypes: {
+        // SEARCH SHOVELER takes a search query string via &lt;input type="hidden" name="query" value="[query]"&gt;
+	    search: {
+		    itemWidth: 137,
+		    getParams: function() { this.query = getParam(this.shoveler, "query"); },
+		    getItems: function() {
+			    var s = this; // hooray js scoping!
+			    jQuery.get("shovelerSearch?"+this.query+"&source;="+s.id, function(ajax) {
+				    if(jQuery.trim(ajax) == "") { // hide widget if there are no items
+				        s.shoveler.hide();
+				    } else {
+				        s.populateItems(ajax);
+				        FreshShovelerMeta.arrangeItems(s);
+				        
+				        jQuery(window).resize(function() { FreshShovelerMeta.arrangeItems(s); });
+				        s.shoveler.find("div.backButton").click(function() { FreshShovelerMeta.showPrev(s); });
+				        s.shoveler.find("div.nextButton").click(function() { FreshShovelerMeta.showNext(s); });
+				        FreshShovelerMeta.tagItems(s);
+				        FreshShovelerMeta.checkAsins(s);
+				    }
+			    });
+		    }
+	    },
+	    // LIST SHOVELER takes a list id via &lt;input type="hidden" name="listId" value="[id]"&gt;
+	    list: {
+	        itemWidth: 137,
+	        getParams: function() { this.listId = getParam(this.shoveler, "listId"); },
+	        getItems: function() {
+	        	var s = this; // hooray js scoping!
+                jQuery.get("shoveler?action=list&listId;="+this.listId+"&source;="+s.id, function(ajax) {
+                	if(jQuery.trim(ajax) == "") { // hide widget if there are no items
+                        s.shoveler.hide();
+                    } else {
+	                    s.populateItems(ajax);
+	                    FreshShovelerMeta.arrangeItems(s);
+	                    
+	                    jQuery(window).resize(function() { FreshShovelerMeta.arrangeItems(s); });
+	                    s.shoveler.find("div.backButton").click(function() { FreshShovelerMeta.showPrev(s); });
+	                    s.shoveler.find("div.nextButton").click(function() { FreshShovelerMeta.showNext(s); });
+				        FreshShovelerMeta.tagItems(s);
+	                    FreshShovelerMeta.checkAsins(s);
+                    }
+                });
+	        }
+	    },
+	    // HERO WIDGET
+	    hero: {
+	    	itemWidth: 110,
+	    	heroTemplate: jQuery("&lt;h1&gt;&lt;div class="heroSpotContainer"&gt;&lt;div class="heroShoveler"&gt;&lt;table class="heroShoveler"&gt;&lt;tr&gt;&lt;td class="backButton"&gt;&lt;/td&gt;&lt;td class="shovelerItems"&gt;&lt;/td&gt;&lt;td class="nextButton"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;"),
+	    	load: function() {
+	    		this.listId = getParam(this.shoveler, "listId");
+	    	    this.headline = getParam(this.shoveler, "headline");
+	    	    this.paginatorGutter = 15;
+	    		
+	    		this.shoveler.append(FreshShovelerMeta.ShovelerTypes.hero.heroTemplate.clone());
+	    		this.shoveler.find(".shovelerItems").append(FreshShovelerMeta.loadingImage.clone());
+	    		this.shoveler.find("h1").text(this.headline);
+	    		this.getItems();
+	    	},
+	    	getItems: function() {
+	    		var s = this;
+	    		jQuery.get("shoveler?action=hero&listId;="+this.listId+"&source;="+s.id, function(ajax) {
+	    			if(jQuery.trim(ajax) == "") { // hide widget if there are no items
+	    			    s.shoveler.hide();	
+	    			} else {
+	    				var response = jQuery(ajax);
+	    				var heroSpots = response.filter("table.heroSpot");
+	    				heroSpots.hide();
+	    				s.shoveler.find(".heroSpotContainer").append(heroSpots);
+	    				s.populateItems(response.filter("div.shovelerItem"));
+	    				s.items.find(".productImage").click(function(event) {
+	    					var asin = jQuery(event.target).parents("div.shovelerItem").find("input[name='expectedAsin']").val();
+	    					var targetHeroSpot = jQuery("#heroSpot_"+asin);
+	    					targetHeroSpot.siblings().fadeOut(300);
+	    					targetHeroSpot.fadeIn(300);
+	    				});
+	    				jQuery(s.items[0]).find(".productImage").click();
+	    				
+	    				FreshShovelerMeta.arrangeItems(s);
+	    				jQuery(window).resize(function() { FreshShovelerMeta.arrangeItems(s); });
+	    				s.shoveler.find("td.backButton").click(function() { FreshShovelerMeta.showPrev(s); });
+                        s.shoveler.find("td.nextButton").click(function() { FreshShovelerMeta.showNext(s); });
+                        FreshShovelerMeta.tagItems(s);
+                        FreshShovelerMeta.checkAsins(s);
+	    			}
+	    		});
+	    	}
+	    },
+	    // DID YOU FORGET SHOVELER generates items from customer's past purchases, with some bestsellers &amp; magazines mixed in
+	    didYouForget: {
+		    itemWidth: 137,
+		    getItems: function() {
+	            var s = this;
+	            jQuery.get("DidYouForgetWidget?source=shovelerjs", function(ajax) {
+	            	if(jQuery.trim(ajax) == "") { // hide widget if there are no items
+                        s.shoveler.hide();
+                    } else {
+                        s.populateItems(ajax);
+                        FreshShovelerMeta.arrangeItems(s);
+                        
+                        jQuery(window).resize(function() { FreshShovelerMeta.arrangeItems(s); });
+                        s.shoveler.find("div.backButton").click(function() { FreshShovelerMeta.showPrev(s); });
+                        s.shoveler.find("div.nextButton").click(function() { FreshShovelerMeta.showNext(s); });
+				        FreshShovelerMeta.tagItems(s);
+                        FreshShovelerMeta.checkAsins(s);
+                    }
+	            });
+	        }
+	    },
+	    // FREE GIFT SHOVELER takes items out of the page (loaded synchronously)
+	    freeGift: {
+	        itemWidth: 137,
+	        getItems: function() {
+	    	    var s = this;
+	    	    var items = this.shoveler.find(".itemsToDisplay").children();
+	    	    if(items.length &gt; 0) {
+	    	        s.populateItems(items);
+	    	        FreshShovelerMeta.arrangeItems(s);
+
+	    	        jQuery(window).resize(function() { FreshShovelerMeta.arrangeItems(s); });
+                    s.shoveler.find("div.backButton").click(function() { FreshShovelerMeta.showPrev(s); });
+                    s.shoveler.find("div.nextButton").click(function() { FreshShovelerMeta.showNext(s); });
+			        FreshShovelerMeta.tagItems(s);
+                    FreshShovelerMeta.checkAsins(s);
+	    	    }
+	    	}
+	    },
+	    zeitgeist: {
+	        itemWidth: 137,
+	        getParams: function() {
+                    this.rankType = getParam(this.shoveler, "rankType");
+                    this.listId = getParam(this.shoveler, "listId");
+                },
+	        getItems: function() {
+                  var s = this; // hooray js scoping!
+                  var args = {
+                    action: 'zeitgeist',
+                    listId: this.listId,
+                    rankType: this.rankType,
+                    source: s.id
+                  };
+                  var success = function(ajax) {
+                    if(jQuery.trim(ajax) == "") { // hide widget if there are no items
+                      s.shoveler.hide();
+                    } else {
+                      s.populateItems(ajax);
+                      FreshShovelerMeta.arrangeItems(s);
+                      jQuery(window).resize(function() { FreshShovelerMeta.arrangeItems(s); });
+                      s.shoveler.find("div.backButton").click(function() { FreshShovelerMeta.showPrev(s); });
+                      s.shoveler.find("div.nextButton").click(function() { FreshShovelerMeta.showNext(s); });
+                      FreshShovelerMeta.tagItems(s);
+                      FreshShovelerMeta.checkAsins(s);
+                    }
+                  };
+                  jQuery.get("shoveler", args, success);
+	        }
+	    },
+	    // ASIN LIST SHOVELER takes an arbitrary list of asins, either from the url path or from an input
+	    asinList: {
+	        itemWidth: 137,
+	        getItems: function() {
+	            var s = this;
+	            if(this.isMinDisplay == null) { this.isMinDisplay = "false"; }
+	            if(this.isMinDisplay) {
+	            	//isMinDisplay appears to never be used/
+		            this.shoveler.find("img.loading").css("top", "60px");
+	                this.shoveler.find("div.body").css("height", "150px");
+	                this.shoveler.find("div.backButton, div.nextButton").css("top", "65px");
+	            }
+	            
+	            var shouldLookupAsins = getParam(this.shoveler, "shouldLookupAsins");
+	            if(shouldLookupAsins == null) { shouldLookupAsins = "false"; }
+	            var suppressProductLink = getParam(this.shoveler, "suppressProductLink");
+	            if(suppressProductLink == null) { suppressProductLink = "false"; }
+	            var rawParams = window.location.search.substr(1).split("&amp;");
+	            var asins = getParam(this.shoveler, "asins");
+	            if(asins == null || asins == "") {
+		            for(var i = 0; i &lt; rawParams.length; i++) {
+		                var pair = rawParams[i].split("=");
+		                if(pair[0] == "asins") {
+			                asins = pair[1];
+			                break;
+		                }
+		            }
+	            }
+                var uid = null;
+                for(var i = 0; i &lt; rawParams.length; i++) {
+                    var pair = rawParams[i].split("=");
+                    if(pair[0] == "id") {
+                        uid = pair[1];
+                        break;
+                    }
+                }
+	            jQuery.get("shoveler", 
+	    	        { action: "asinlist", isMinDisplay: this.isMinDisplay, shouldLookupAsins: shouldLookupAsins, suppressProductLink: suppressProductLink, asins: asins, uid: uid },
+		            function(ajax) {
+		            	if(jQuery.trim(ajax) == "") { // hide widget if there are no items
+	                        s.shoveler.hide();
+	                    } else {
+	                        s.populateItems(ajax);
+	                        FreshShovelerMeta.arrangeItems(s);
+	                        
+	                        jQuery(window).resize(function() { FreshShovelerMeta.arrangeItems(s); });
+	                        s.shoveler.find("div.backButton").click(function() { FreshShovelerMeta.showPrev(s); });
+	                        s.shoveler.find("div.nextButton").click(function() { FreshShovelerMeta.showNext(s); });
+					        FreshShovelerMeta.tagItems(s);
+	                        if(!s.isMinDisplay) { FreshShovelerMeta.checkAsins(s); }
+	                    }
+		            }
+	            );
+	        }
+	    },
+	    // NOW WIDGET SHOVELER builds items from various sources
+	    nowWidget: {
+	        itemWidth: 137,
+	        getParams: function() { this.bn = getParam(this.shoveler, "bn");},
+	        getItems: function() {
+	    	    var s = this,
+	    	        sources = ["rctItems", "recItems", "rndItems", "ftItems"],
+	    	        responses = {},
+	    	        responseCount = 0;
+				if (this.bn) {
+					sources = ["recItems", "rndItems"];
+	                responses["rctItems"] = "";
+	                responses["ftItems"] = "";
+				}
+    	        
+    	        jQuery.each(sources, function(i, source) {
+        	        var bnRefinement = (s.bn) ? "&bn;="+ s.bn : "";
+    	            jQuery.get("NowWidget?action="+source+bnRefinement, function(ajax) {
+    	                responseCount++;
+    	                responses[source] = ajax;
+                        if(responseCount == sources.length) {
+                            var aggregateSources = responses["ftItems"] + responses["rctItems"] + responses["recItems"] + responses["rndItems"];
+                            s.populateItems(aggregateSources);
+                            FreshShovelerMeta.arrangeItems(s);
+
+                            jQuery(window).resize(function() { FreshShovelerMeta.arrangeItems(s); });
+                            s.shoveler.find("div.backButton").click(function() {
+                                s.type.logEvent("prev");
+                                FreshShovelerMeta.showPrev(s);
+                            });
+                            s.shoveler.find("div.nextButton").click(function() {
+                                s.type.logEvent("next");
+                                FreshShovelerMeta.showNext(s);
+                            });
+                            visibilityStatus = s.type.isVisible(s.shoveler);
+                            visibilityStatus ? s.type.logEvent("visible") : s.type.logEvent("invisible");
+                            s.shoveler.mouseenter(function() {
+                                if(visibilityStatus) { s.type.logEvent("enter"); }
+                            });
+                            jQuery(window).scroll(function() {
+                                var currentVisibility = s.type.isVisible(s.shoveler);
+                                if(!visibilityStatus &amp;&amp; currentVisibility) {
+                                    s.type.logEvent("scrollvisible");
+                                }
+                                visibilityStatus = currentVisibility;
+                            });
+    				        FreshShovelerMeta.tagItems(s);
+                            FreshShovelerMeta.checkAsins(s);
+                        }
+    	            });
+    	        });
+	    	},
+	    	logEvent: function(event) {
+	    	    jQuery.post("NowWidget?event="+event);
+	    	},
+	    	isVisible: function(s) {
+	    	    var sTop = s.offset().top - jQuery(document).scrollTop();
+	    	    var sHeight = s.height();
+	    	    var sBottom = sTop + sHeight;
+	    	    var visThresh = sHeight / 4;
+	    	    return (sTop &gt; -visThresh) &amp;&amp; (sBottom &lt; (jQuery(window).height() + 2 * visThresh));
+	    	},
+	    	visibilityStatus: false
+	    }
+	},
+	loadFreshShoveler: function() {
+		if(null != this.getExtraParams) { this.getExtraParams(); }
+	    this.shoveler.wrap("&lt;div class=""+ this.displayType+""&gt;&lt;/div&gt;");
+	    // create shoveler framework
+	    this.shoveler.append(FreshShovelerMeta.shovelerTemplate.clone());
+	    this.shoveler.find(".shovelerPagination").hide();
+	    this.shoveler.find(".shovelerItems").append(FreshShovelerMeta.loadingImage.clone());
+	    this.shoveler.find("h2").text(this.header);
+	    
+	    
+	    this.getItems();
+	},
+    populateItems: function(items) {
+	    var s = this;
+	    s.shoveler.find(".loading").remove();
+	    s.shoveler.find(".shovelerItems").append(items);
+	    s.items = s.shoveler.find(".shovelerItem");
+	    s.items.each(function(i) {
+	        jQuery(this).attr("id", s.id+"Item_"+i); 
+	    });
+	},
+	arrangeItems: function(s) {
+		if(s.displayType != 'underCart') {
+			var containerWidth = s.shoveler.find(".shovelerItems").width();
+		    s.capacity = Math.floor(containerWidth / s.type.itemWidth) - 1;
+		    var totalMargin = containerWidth - (s.capacity * s.type.itemWidth);
+		    s.perItemMargin = totalMargin / (s.capacity + 1);
+	        s.currentItem = 0;
+	        s.currentPage = 0;
+	        s.pageCount = Math.ceil(s.items.length / s.capacity);
+	
+	        FreshShovelerMeta.scrollItems(s);
+		    s.shoveler.find(".pageCount").empty().append(s.pageCount);
+		    s.shoveler.find(".shovelerPagination").show();
+		} else {
+			
+	        s.items.each(function(i) {
+		       if (i &gt; 5) { jQuery("#" + s.id+"Item_"+i).hide(); }
+	        });
+		}
+	    // if layout-js (from the redesign) is present then must add things to cart via ajax
+	    if ('function' == typeof attachAddToCartHandlers) {
+	    	attachAddToCartHandlers();
+	    }
+	},
+	adjustShovelerHeight: function(s) {
+		var maxShovelerItemHeight = 0;
+		s.shoveler.find("div.shovelerItem").each(function() {
+			var height = jQuery(this).height();
+			if(height &gt; maxShovelerItemHeight) {
+				maxShovelerItemHeight = height;
+			}
+		});
+		if(s.type == FreshShovelerMeta.ShovelerTypes.hero) {
+	        var heroSpotHeight = s.shoveler.find(".heroSpotContainer").height();
+	        s.shoveler.css("height", heroSpotHeight + maxShovelerItemHeight + 55);
+		} else if(s.displayType != 'underCart') { // this will support all standard shovelers
+			s.shoveler.find("div.body").css("height", maxShovelerItemHeight);
+		}
+	},
+	showPrev: function(s) {
+	    s.currentPage = (s.currentPage + s.pageCount - 1) % s.pageCount; // pre-emptively handle negative mod
+	    FreshShovelerMeta.scrollItems(s);
+	},
+	showNext: function(s) {
+		s.currentPage = (s.currentPage + 1) % s.pageCount;
+		FreshShovelerMeta.scrollItems(s);
+	},
+	scrollItems: function(s) {
+		var autoWidthAdjust = 0;
+		if(s.type == FreshShovelerMeta.ShovelerTypes.hero) {
+			autoWidthAdjust = s.shoveler.offset().left;
+		}
+	    s.items.hide();
+	    var startIndex = s.currentPage * s.capacity,
+	        endIndex = Math.min(s.items.length, startIndex + s.capacity),
+	        position = 0;
+	    for(var i = startIndex; i &lt; endIndex; i++) {
+	    	jQuery(s.items[i]).css({ left: (s.type.itemWidth + s.perItemMargin) * position + s.perItemMargin + s.paginatorGutter + autoWidthAdjust}).show();
+	    	position++;
+	    }
+	    s.shoveler.find(".currentPage").empty().append(s.currentPage+1);
+	},
+	tagItems: function(s) {
+		var tag = getParam(s.shoveler, "csTag");
+		if (tag) {
+		    s.shoveler.find("div.shovelerItem").each(function() {
+		        var item = jQuery(this);
+			    var pfref = item.attr("id");
+			    item.find("a").each(function() {
+			    	var linkTag = jQuery(this);
+			    	var currentHref = linkTag.attr("href");
+			    	linkTag.attr("href",currentHref+tag+"&pf;_ref="+pfref+"_link"+"&ref;_=cs_"+pfref);
+			    });
+		        
+		        s.shoveler.find("input.csTag").each(function() {
+			        var tagItem = jQuery(this);
+					item.find("form.addToCartForm").append(jQuery("&lt;input type="hidden" name=""+tagItem.attr("name")+"" value="" + tagItem.attr("value")+""&gt;"));
+		        });
+		        item.find("form.addToCartForm").append(jQuery("&lt;input type="hidden" name="pf_ref" value="" + pfref+"_cart"&gt;"));
+	            item.find("form.addToCartForm").append(jQuery("&lt;input type="hidden" name="ref_" value="cs_" + pfref+""&gt;"));
+		    });
+		}
+	},
+	checkAsins: function(s) {
+	    s.shoveler.find("div.shovelerItem").each(function() {
+	        var item = jQuery(this);
+	        var expectedAsin = item.find("input[name='expectedAsin']").attr("value");
+	        var addToCartAsin = item.find("input[name='addToCartAsin']").attr("value");
+	        if(expectedAsin != addToCartAsin) {
+	            jQuery.get("ping?badShovelerAsins&expected;="+expectedAsin+"&actual;="+addToCartAsin+"&shoveler;="+s.id);
+	            item.find("form.addToCartForm input[name='asin']").attr("value", expectedAsin);
+	        }
+	    });
+	},
+	loadAllShovelers: function() {
+		var widgets = jQuery("div.shovelerWidget, div.heroWidget");
+	    if(widgets.length &gt; 0) {
+	        widgets.each(function(i) {
+	            var targetId = jQuery(this).attr("id");
+	            var widget = new FreshShoveler(targetId);
+	            widget.load();
+	        });
+	    }
+	}
+}
+
+function getParam(parent, name) { return parent.find("input[name='"+name+"']").attr("value"); }
+function isEmpty(string) { string = jQuery.trim(string); return (string == null || string == ""); }
+  </script>
+  <script type="text/javascript">
+   function isGateway() {
+	var path = window.location.pathname;
+    return (path.substr(path.length-8, path.length) == "/Gateway") || (path == "/") || (path == "/str/");
+}
+  </script>
+  <script>
+   jQuery(document).ready(function() {
+	if(jQuery("#wishlistTeaser").length &gt; 0) {
+		if(isGateway()) {
+		    jQuery("#wishlistTeaserWrapper").remove();
+		} else {
+			jQuery("#wishlistTeaserResults").hide();
+			var spinnerUrl = '&lt;img src="http://g-ecx.images-amazon.com/images/G/01/ui/loadIndicators/loadIndicator-noLabel.gif"  /&gt;'
+			jQuery("#wishlistTeaserLoadingMessage").append("&lt;h3 id='teaserLoading'&gt;Loading Wish List Data " + spinnerUrl + "&lt;/h3&gt;");
+	
+			jQuery("#wishlistTeaserResults").load("WishlistTeaser", function() {
+				jQuery("#wishlistTeaserLoadingMessage").remove();
+				jQuery("#wishlistTeaserResults").fadeIn(1000);
+			});
+		}
+	} else if (jQuery("#wishlistTeaserWrapper").children().length == 0) {
+		// Avoid empty green box
+		jQuery("#wishlistTeaserWrapper").remove();
+	}
+});
+  </script>
+  <script type="text/javascript">
+   // replace the "hover" menus with "tap" menus for iPads and such
+if ('ontouchstart' in window) {
+	jQuery(function($) {
+		$("#stripeMenu li:has('.stripeHover') a").click(function() {
+			this.parent.toggleClass("expanded");
+			return false;
+		});
+	});
+}
+
+
+// now bestsellers tab
+
+var nowBestsellers = {
+	box: null,
+	items: null,
+	waitInterval: 3000,
+	currItem: 0
+};
+
+jQuery(function() {
+    nowBestsellers.box = jQuery("#nowBestsellers");
+    if(nowBestsellers.box.length &gt; 0) {
+        initializeNowBestsellers();
+    }
+    
+    FreshShovelerMeta.loadAllShovelers();
+});
+
+function initializeNowBestsellers() {
+    nowBestsellers.box.hide();
+
+    jQuery.get("shoveler?action=list&amp;fromTab=true", function(ajax) {
+    // jQuery.get("shoveler?action=nowbestsellers&amp;count=15", function(ajax) {
+        nowBestsellers.box.append(ajax);
+        nowBestsellers.items = nowBestsellers.box.find(".nowBestseller");
+        var hovers = jQuery("#nowBestsellers div.nowBestsellerHoverOver");
+        jQuery("body").append(hovers);
+        hovers.hide();
+        var hasCart = (jQuery("#inlineCartColumn").length &gt; 0);
+        if(!hasCart) {
+            hovers.find("form").hide();
+        }
+        nowBestsellers.items.hide().mouseover(showNowBestsellerHover);
+        jQuery(nowBestsellers.items[0]).attr("id", "activeNowBestseller").fadeIn();
+        nowBestsellers.box.fadeIn();
+        if(!isGateway()) {
+            nowBestsellers.box
+                .mouseover(function() { clearInterval(nowBestsellersInterval); })
+	            .mouseout(function() { nowBestsellersInterval = setInterval(rotateNowBestseller, nowBestsellers.waitInterval); })
+	            .mouseout();
+        }
+    });
+}
+
+function rotateNowBestseller() {
+    jQuery("#activeNowBestseller").fadeOut().removeAttr("id");
+    nowBestsellers.currItem = (nowBestsellers.currItem+1) % nowBestsellers.items.length;
+    jQuery(nowBestsellers.items[nowBestsellers.currItem]).attr("id", "activeNowBestseller").fadeIn();
+}
+
+function showNowBestsellerHover(event) {
+	var icon = jQuery(event.target).parents(".nowBestseller");
+	var asin = icon.find("input[name='asin']").attr("value");
+	var offsets = icon.offset();
+	var hoverOver = jQuery("#hover_"+asin);
+	if(hoverOver) {
+	    hoverOver.css({top:offsets.top-20, left: offsets.left-20}).show().mouseleave(hideNowBestsellerHover);
+	}
+}
+
+function hideNowBestsellerHover(event) {
+    jQuery(event.target).parents(".nowBestsellerHoverOver").hide();
+}
+
+jQuery(document).ready(function() {
+    var $search = jQuery("#topNav").find("input#search, input#searchAutocomplete");
+    if (!('placeholder' in document.createElement('input'))) {
+        // placeholder is not supported in this browser
+    	if ('' == $search.val() &amp;&amp; !($search.get(0) == document.activeElement)) {
+    		$search.val('Search');
+    	}
+        $search.focus(searchFieldFocus)
+        .blur(searchFieldBlur);
+    }
+})
+
+function searchFieldFocus(event) {
+    var field = jQuery(event.target);  
+    if (field.val() == "Search") {
+        field.val("")
+             .css("color", "black");
+    }
+}
+
+function searchFieldBlur(event) {
+    var field = jQuery(event.target); 
+    if (field.val() == "") {
+        field.val("Search")
+             .css("color", "#999999");
+    }
+}
+
+jQuery.fn.simplePopover = function(options) {
+    var $ = jQuery;
+	var defaults = {
+			success: function() {},
+			cancel: function() {}
+	}
+	if (!options) { options = {}};
+	var settings = $.extend({}, defaults, options);
+	var $alpha = $('#alphaLayer');
+	$alpha.addClass('disablePage');
+	var $popover = $('&lt;div class="simplePopoverWrapper"&gt;&lt;div class="simplePopover"&gt;' + this.html() + '&lt;/div&gt;&lt;/div&gt;').appendTo('body');
+	var $form = $popover.find("form");
+	var closePopover = function() {
+        $alpha.removeClass('disablePage');
+        $popover.remove();
+	}
+	var cancel = function() {
+		closePopover();
+		settings.cancel();
+		return false;
+	}
+	$popover.find(".closeWindow").click(cancel);
+	$form.submit(function() {
+		var url = $form.attr("action");
+		var extraParams = settings.extraParams;
+		$.post(url, $form.serialize() + extraParams, function(data, textStatus, xhr) {
+			closePopover();
+			settings.success(data, textStatus, xhr);
+		});
+		return false;
+	});
+	$form.find(":reset").click(cancel);
+	return $popover;
+};
+
+jQuery(document).ready(function() {
+    var resultCountInput = jQuery("form#freshSearchForm").find("input[name=resultsPerPage]");
+    
+    if (resultCountInput.length == 0)
+        return;
+        
+    var contentColumn = jQuery("div#contentColumn");
+    var cartDiv = jQuery("div#inlineCartColumn");
+    var resultSpaceWidth = jQuery(window).width() - (jQuery(window).width() - cartDiv.offset().left) - contentColumn.offset().left;
+	var searchItemWidth = 160;
+    var resultsPerRow = Math.floor(resultSpaceWidth / searchItemWidth);
+    var resultCount = resultsPerRow * 6;
+
+    var ppItemWidth = 96,
+    	ppResultsPerRow = Math.floor(resultSpaceWidth / ppItemWidth),
+		ppResultCount = ppResultsPerRow * 4; 
+
+    resultCountInput.val(resultCount);
+    
+    var linksToModify = []
+    jQuery.merge(linksToModify, jQuery("#lnk-tab-shop"));
+    jQuery.merge(linksToModify, jQuery("#shopAmazonNow"));
+    jQuery.merge(linksToModify, jQuery("#lnk-tab-specials"));
+    jQuery.merge(linksToModify, jQuery("div.aisleDetails a"));
+    jQuery.merge(linksToModify, jQuery("div.aislePicture a"));
+    
+    jQuery.each(linksToModify, function() {
+    	var link = jQuery(this);
+        var isFirstParam = link.attr("href").indexOf("?") &lt; 0;
+        link.attr("href", link.attr("href") + (isFirstParam ? "?" : "&amp;") + "resultsPerPage=" + resultCount);
+    });
+    
+    setResultCountForPastPurchases(ppResultCount);
+    setSeeOptionsAction();
+});
+
+function setSeeOptionsAction() {
+	jQuery("input.seeOptions").live("click", seeOptions);
+}
+
+var seeOptions = function(event) {
+	event.preventDefault();
+	jQuery("div#savedToCart, div.emwaMessage").remove();
+	jQuery("div.slotRestrictionPopupMsg").hide();
+	var button = jQuery(event.target),
+		messagePred = button.parents("div.densePPItem, div.smallProduct"),
+		posTop = 0,
+    	posLeft = 0;
+	if (messagePred.length &gt; 0) {
+		posTop = messagePred.position().top + 55;
+    	posLeft = messagePred.position().left - 8;
+    	if (messagePred.hasClass("smallProduct")) {
+			posLeft -= 13;
+    	}
+	} else {
+		messagePred = button.parent("form");
+	}
+	if (messagePred.length == 0) {
+		messagePred = button;
+	}
+	var message = jQuery(messagePred.nextAll("div.slotRestrictionPopupMsg")[0]);
+
+	message.css("top", posTop);
+	message.css("left", posLeft);
+	message.show();
+}
+
+function setResultCountForPastPurchases(resultCount) {
+	var anchors = [],
+		ppLink = jQuery("#lnk-tab-lists");
+	if (ppLink.length &gt; 0) {
+		anchors.push(ppLink);
+	}
+
+	var ppForm = jQuery("#pastPurchases form#pastPurchasesSearch");
+	if (ppForm.length &gt; 0) {
+		ppForm.find("input[name=resultsPerPage]").val(resultCount);
+	}
+	
+	var	aisles = jQuery("#pastPurchases div#filterByAisle");
+	if (aisles.length &gt; 0) {
+		aisles.find("a").each(function(index) {
+			anchors.push(jQuery(this));
+		});
+	}
+	var pagination = jQuery("#pastPurchases div.pagination");
+	if (pagination.length &gt; 0) {
+		pagination.find("a").each(function(index) {
+			anchors.push(jQuery(this));
+		});
+	}
+
+    var breadcrumb = jQuery("#breadcrumb");
+	if (breadcrumb.length &gt; 0) {
+		// remove the first one, as it will be "Amazon Fresh", which doesn't need it.
+		breadcrumb.find("a").slice(1).each(function(index) {
+	       anchors.push(jQuery(this));
+	    });
+	}
+
+	
+	for (var i = 0; i &lt; anchors.length; i++) {
+        var link = jQuery(anchors[i]),
+        	href = link.attr("href");
+        if (href.indexOf("?") &gt;= 0) {
+        	link.attr("href", href + "&resultsPerPage;=" + resultCount);
+        } else {
+        	link.attr("href", href + "?resultsPerPage=" + resultCount);
+        }
+	}
+}
+  </script>
+  <script type="text/javascript">
+   jQuery(function($) {
+	function selectSuggestion(suggestion) {
+	    document.getElementById('predictiveSearchFlag').value = "true";
+	    jQuery('#freshSearchForm').submit();
+	}
+	
+	var $autocomplete = $('#searchAutocomplete').autocomplete("SearchSuggestions", { 
+	        delay:200,
+	        cacheLength:10,
+	        matchSubset:0,
+	        selectFirst:false,
+	        selectOnly:false
+	    }).result(function(event, selected, formatted) {
+		    //chrome's shinny html5 search box likes triggering this when the user 
+		    //clicks the X to clear the text in the box
+			if (selected != undefined &amp;&amp; selected.length &gt; 0) { 
+	    		selectSuggestion(selected);
+			}
+        });
+	 var $autofocus = $('input[autofocus]');
+	 
+	   // helper functions
+	   var isAlphaNumeric = function(code) {
+	      return (code &gt;= 48 &amp;&amp; code &lt; 58) ||  //digits
+	            (code &gt;= 65 &amp;&amp; code &lt; 91) ||   // uppercase
+	            (code &gt;= 97 &amp;&amp; code &lt; 123);    //lowercase
+	   };
+
+	   var isInput = function(target) {
+	      return ('INPUT' === target.tagName)
+	          || ('TEXTAREA' === target.tagName)
+	          || ('SELECT' === target.tagName);
+	   };
+	   
+	   var isMeta = function(e) {
+		   return e.altKey || e.ctrlKey || e.metaKey;
+	   };
+
+	   var searchSpaceAvailable = function() {
+	      var $stripeMenu = $("#stripeMenu");
+	      if (!$stripeMenu.size()) {
+	          return 0;
+	      }
+	      var $cartInfo = $("#cartInfo");
+	      if ($cartInfo.size()) {
+	        return $cartInfo.offset().left - ($stripeMenu.offset().left + $stripeMenu.width());
+	      } else {
+	         return $("topNav").width() - ($stripeMenu.position().left + $stripeMenu.width());
+	      }
+	   };
+	   
+       // instrument keydown mapping
+	   $(document).keydown(function(e) {
+	     if (!isInput(e.target) &amp;&amp; isAlphaNumeric(e.which) &amp;&amp; !isMeta(e)) {
+	           $autocomplete.focus();
+	     }
+	   });
+
+
+	    
+	if (!("autofocus" in document.createElement("input"))) {
+		  // HTML5 autofocus is not natively supported
+	      $('input:text').each(function() {
+	    	 if (this.getAttribute('autofocus') != null) {
+	    		 this.focus();
+	    	 } 
+	      });
+	}
+});
+  </script>
+  <script language="javascript" type="text/javascript">
+   function swapStars(numstars, imageID, color){
+        var image = document.getElementById(imageID);
+        var path = getNewCustRatingPath(image,imageID);
+        if(color == "yellow") {         
+            var numstarPath = numstars.split(".").join("-");
+            if(numstarPath == "0-0") {
+                path += "stars-";
+                numstarPath += "-transparent";
+            }
+            else {
+                path += "ratings/stars-"
+            }
+            image.setAttribute('src', path + numstarPath + '._V25749327_.gif');
+            image.setAttribute('width', '55');
+        } else {
+            
+            var custRatingUrlElem = jQuery('#currentCustUrl');
+            var custRatingUrl = custRatingUrlElem.html();
+
+            image.setAttribute('src',custRatingUrl);
+            image.setAttribute('width', '55');
+        }
+}
+
+function returnGreenStars(imageID){
+    var image = document.getElementById(imageID);
+    var currAvg = document.getElementById('currentAvg');
+    var numstars = currAvg.textContent;
+    
+    var oldUrl =  image.getAttribute('src');
+    var pieces = oldUrl.split(":");
+    var path = "";
+    if(pieces[0] == 'https'){
+        path="https://images-na.ssl-images-amazon.com/images/G/01/omaha/images/img_";
+    }
+    else{
+        path = "http://g-ecx.images-amazon.com/images/G/01/omaha/images/img_";
+    }
+    var splice = "zero";
+    var end = "_star.gif";
+    if(numstars == 0.0)  { splice = "zero";
+    } else if (numstars == 0.5) { splice = "zero_half";
+    } else if (numstars == 1.0) { splice = "one";
+    } else if (numstars == 1.5) { splice = "one_half";
+    } else if (numstars == 2.0) { splice = "two";
+    } else if (numstars == 2.5) { splice = "two_half";
+    } else if (numstars == 3.0) { splice = "three"; 
+    } else if (numstars == 3.5) { splice = "three_half";
+    } else if (numstars == 4.0) { splice = "four";
+    } else if (numstars == 4.5) { splice = "four_half";
+    } else if (numstars == 5.0) { splice = "five"; }
+    
+    //alert(path + splice + end);
+    image.setAttribute('src', path + splice + end);
+    image.setAttribute('width', '55');
+}
+
+function calculateAvgFromUrl(oldUrl){
+    var pieces = oldUrl.split("_");
+    var first = pieces[1];
+    var num = 0.0;
+    if(first == 'zero'){ num = 0.0;
+    }else if(first == 'one'){ num = 1.0;
+    }else if(first == 'two'){ num = 2.0;
+    }else if(first == 'three'){ num = 3.0;
+    }else if(first == 'four'){ num = 4.0;
+    }else if(first == 'five'){ num = 5.0;}
+    if(pieces.length &gt; 3){ num = num + 0.5;}
+    return num;
+}
+
+function onClick(rating,asin,name,isSecure){
+    jQuery.get(
+        "RatingRequest?asin=" + asin + "&amp;rating=" + rating + "&amp;secure=" + isSecure,
+        function(ajax) {
+            if(name == 'CustReviews') {
+                setupPage(ajax, name);
+                setupPage(ajax, '2MoonNBack');
+            } else if (name == '2MoonNBack') {
+                setupPage(ajax, name);
+                if (jQuery('ratingMessageAll' + 'CustReviews').length) {
+                    setupPage(ajax, 'CustReviews');
+                    returnGreenStars('CustReviews');
+                }
+            } else {
+                setupPage(ajax, name);
+            }
+        }
+    );
+}
+
+function setupPage(ajax,name){
+    var splitResponse = jQuery.trim(ajax).split("\n");
+    var newAvgRating = splitResponse[0];
+    var newCustRatingUrl = splitResponse[2];
+    var newRatingMessageAll = splitResponse[3];
+    var newNumRated = splitResponse[4];
+    var newRatingMessageDetail = splitResponse[5];
+
+    if(jQuery('#currentCustUrl').length){
+        var custUrl = jQuery('#currentCustUrl')[0];
+        custUrl.textContent=newCustRatingUrl;
+        custUrl.innerText=newCustRatingUrl;
+        swapStars('0.0', name, 'original');
+     }
+
+    if(jQuery('#currentAvg').length){
+        var avgRating = document.getElementById('currentAvg');
+        avgRating.textContent = newAvgRating;
+        avgRating.innerText = newAvgRating;
+    } 
+
+    if(jQuery('ratingMessageAll'+name).length){
+        var ratingMessageAll = document.getElementById('ratingMessageAll'+name);
+        if (ratingMessageAll != null) {
+            ratingMessageAll.textContent = newRatingMessageAll;
+            ratingMessageAll.innerText = newRatingMessageAll;
+        }
+    }
+    
+    if(jQuery('numRated'+name).length){
+        var numRated = document.getElementById('numRated'+name);
+        numRated.textContent = newNumRated;
+        numRated.innerText = newNumRated;
+    }
+
+    if(jQuery('ratingMessageDetail'+name).length){
+        var ratingMessageDetail = document.getElementById('ratingMessageDetail'+name);
+        if (ratingMessageDetail != null) {
+            ratingMessageDetail.textContent = newRatingMessageDetail;
+            ratingMessageDetail.innerText = newRatingMessageDetail;
+        }
+    }
+    
+    if(jQuery('hasBeenRated').length){
+        var rated = jQuery('hasBeenRated')[0];
+        rated.textContent = 'yes';
+        rated.innerText = 'yes';
+    }
+    
+    var custImage = jQuery("#custRating"+name + " img");
+    if(custImage.length &amp;&amp; checkValidForCustRating(name)){
+        var finalUrl = getNewCustUrlFromUrl(newCustRatingUrl, custImage, name);
+        custImage.attr('src', finalUrl);
+        custImage.attr('width', '55');
+     }
+     
+    returnGreenStars(name);
+
+}
+
+function checkValidForCustRating(word){
+    var name = word.toLocaleLowerCase();
+    if(name.indexOf('merchandising') == -1 &amp;&amp; name.indexOf('sims') == -1 &amp;&amp; name.indexOf('search')  == -1 &amp;&amp;  name.indexOf('special') == -1){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function getNewCustUrlFromUrl(url, image, imageID){
+    var chunk = 'customer-reviews/';
+    var urlArr = url.split(chunk);
+    var oldUrl =  image.attr('src');
+    var path = switchOnS(oldUrl.split(':')[0]); //switchOnS(url.split(':')[0]);
+    var finalUrl = path + urlArr[1];
+    return finalUrl;
+}
+
+function getNewCustRatingPath(image, imageID){
+    var oldUrl =  image.getAttribute('src');
+    var currName = document.getElementById('currName');
+    if(currName.textContent != imageID){
+        currName.textContent = imageID;
+        currName.innerText = imageID;
+        var oldAvg = calculateAvgFromUrl(oldUrl);
+        var avgRating = document.getElementById('currentAvg');
+        avgRating.textContent = oldAvg;
+        avgRating.innerText = oldAvg;
+    }
+    
+    var pieces = oldUrl.split(":");
+    var path = switchOnS(pieces[0]);
+
+    return path;
+}
+
+function switchOnS(piece){
+    var path = '';
+    if(piece == 'https'){
+        path="https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/customer-reviews/";
+    } else{
+        path = "http://g-ecx.images-amazon.com/images/G/01/x-locale/common/customer-reviews/";
+    } 
+    return path;
+}
+
+function addTag(asin){
+    var newTagName = jQuery("#tagName").attr("value");
+    jQuery.get(
+        "AddItemTag?asin="+asin+"&amp;tagName="+newTagName,
+        function(ajax) {
+            document.getElementById('tags').remove();
+            var divTag = document.createElement("div");
+            divTag.id = "tags";
+            divTag.innerHTML = ajax;
+            document.getElementById('tagDisplay').appendChild(divTag);
+         }
+    );
+}
+  </script>
+  <link href="http://z-ecx.images-amazon.com/images/G/01/omaha/css/info._V1326320390_.css" type="text/css" rel="stylesheet" />
+  <script language="javascript" type="text/javascript">
+   function submitOnlyOnce(theForm){
+	jQuery(jQuery(theForm).find("input[type=image], input[type=submit], input[type=button]").attr("disabled", "disabled"));
+}
+
+function disableConfirmOrderForms() {
+	var forms = jQuery("form[action='ConfirmOrder']");
+	var inputs = forms.find("input[type=image], input[type=submit], input[type=button]");
+	inputs.attr("disabled", "disabled");
+}
+
+function disableLink(theLink) {
+	jQuery(theLink).click(function(e) { return false; });
+}
+
+function refreshShoppingCart() {
+	jQuery("#shopping-cart").attr("src", "ShoppingCartView");
+}
+
+var cartEventListeners = [];
+
+function addCartEventListener(listener){
+	cartEventListeners.push(listener);
+}
+
+function cartReloadEvent(cartInfo){
+	for(index in cartEventListeners) {
+		cartEventListeners[index](cartInfo);
+	}	
+}
+  </script>
+  <script>
+   jQuery(document).ready(function() {
+   	var whenAvailableBlock = jQuery("div.whenAvailableBlock");
+    whenAvailableBlock.find("input[value='submit'], a.button").click(submitEmwaRequest);
+    whenAvailableBlock.find(".emwaMoreOptions").click(getAddToMyNextOrderPopover);
+    jQuery(document).keypress(
+		function(e) { 
+			if(e.keyCode == 27) {
+				closePopover();
+			} 
+		}
+	);
+	jQuery(".editEmwaForm").submit(getAddToMyNextOrderPopover);
+	jQuery(".cancelEmwaForm").submit(cancelEmwa);
+});
+
+function cancelEmwa(event) {
+	event.preventDefault();
+	var form = jQuery(event.target);
+	var asin = form.find("input[name='asin']").val();
+	var refId = form.find("input[name='refId']").val();
+	
+	jQuery.get(
+		"CancelEmwa",
+		{asin: asin,
+		refId: refId},
+	    function(ajax) {
+			form.parents("tr").fadeOut(300);	
+	    }
+	);
+}
+
+function displayAddToMyNextOrderPopover(form) {
+	var asin = form.find("input[name='asin']").val(),
+    refId = form.find("input[name='refId']").val(),
+    emwaReferer = form.find("input[name='emwaReferer']").val();
+
+	jQuery.get(
+	    "AddToMyNextOrderPopover?asin=" + asin + "&amp;refId=" + refId + "&amp;emwaReferer=" + emwaReferer + "&amp;referer=" + "%2Fproduct%3Frank%3D38%26asin%3DB0010AYJXI%26sr%3D1-38%26tag%3Dimg%26qid%3D119355486",
+	    function(ajax) {
+	        jQuery("#alphaLayer").addClass("disablePage");
+	        var wrapper = jQuery("&lt;div&gt;&lt;/div&gt;").addClass("listPopoverWrapper");
+	        var infoBox = jQuery("&lt;div&gt;&lt;/div&gt;").attr("id", "infoBox").append(ajax).css("top", jQuery(window).scrollTop() + "px");
+	
+	        wrapper.append(infoBox);
+	        jQuery("body").append(wrapper);
+	        jQuery("#infoBox_close .closeWindow a").click(closePopover);
+	        jQuery("form.addToMyNextOrderForm").submit(
+	            function(event) {
+	                jQuery("#infoBox_box").hide();
+	                submitEmwaRequest(event);
+	                closePopover(event);
+	            }
+	        );
+	        // dependency on ajaxCart-js.jsp
+	        attachAddToCartHandlers();  
+	    }
+	);
+}
+
+function getAddToMyNextOrderPopover(event) {
+	event.preventDefault();
+	var form = jQuery(event.target).parents("form").andSelf();
+	displayAddToMyNextOrderPopover(form);
+}
+
+function closePopover(event) {
+	if(null != event) {	event.preventDefault(); }
+	jQuery("div.listPopoverWrapper, div.savingsPopover").remove();
+	jQuery("#alphaLayer").removeClass("disablePage");
+}
+
+function autoSubmitEmwaRequest(asin, action, actionVariant, quantityRequested) {
+	var refId = "";
+	var emwaReferer = "undefined";
+	var orderId = "0";
+	makeEmwaRequestCall(asin, action, orderId, refId, actionVariant, quantityRequested, emwaReferer);
+}
+
+function makeEmwaRequestCall(asin, action, orderId, refId, actionVariant, quantityRequested, emwaReferer) {
+	jQuery.get(
+        "EmwaRequest",
+        {asin: asin,
+        action: action,
+        orderId: orderId,
+        refId: refId,
+        actionVariant: actionVariant,
+        quantityRequested: quantityRequested,
+        emwaReferer: emwaReferer},
+        function(ajax) {
+            if (ajax == 'signIn') {
+                var signInUrl = "%2Fproduct%3Frank%3D38%26asin%3DB0010AYJXI%26sr%3D1-38%26tag%3Dimg%26qid%3D119355486" + "%26callOnLoad%3DautoSubmitEmwaRequest-" + asin + "-" + action + "-" + actionVariant + "-" + quantityRequested;
+                window.location = "SignIn?signInSuccessUrl=" + signInUrl;
+                return;
+            } else if (emwaReferer == 'trackEmwa' &amp;&amp; ajax != 'error') {
+                response = ajax.split("|");
+                var newQty = response[0],
+                    newAction = response[1],
+                    newExp = response[2],
+                    newDetails = response[3],
+                    newRequestDate = response[4],
+                    row = jQuery("tr.emwaRow-"+asin).filter(".active");
+                row.find("td.emwaQty").empty().append(newQty);
+                row.find("td.emwaAction").empty().append(newAction);
+                row.find("td.emwaExp").empty().append(newExp);
+                row.find("td.emwaDetails").empty().append(newDetails);
+                row.find("td.emwaRequestDate").empty().append(newRequestDate);
+            } else {
+                updateItemMessage(asin, ajax);
+            }
+        }
+    );
+}
+
+function updateItemMessage(asin, message) {
+	var whenAvailableBlock = jQuery("div.whenAvailableBlock"),
+		emwaAsinInput = whenAvailableBlock.find("input[value='" + asin  + "']"),
+		ppItemDiv = emwaAsinInput.parents("div.densePPItem");
+	jQuery("div.slotRestrictionPopupMsg").hide();
+	if (ppItemDiv.length &gt; 0) {
+		jQuery("div.emwaMessage, div#savedToCart").remove();
+	    var messageHtml = jQuery("&lt;div class="messaging emwaMessage"&gt;&lt;div class="confirmation"&gt;" + message + "&lt;/div&gt;&lt;/div&gt;"),
+	    	posTop = ppItemDiv.position().top + 55,
+	    	posLeft = ppItemDiv.position().left - 8;
+		messageHtml.css("left", posLeft);
+		messageHtml.css("top", posTop);
+		var messageWrapper = jQuery("&lt;div&gt;").append(messageHtml);
+		ppItemDiv.after(messageWrapper.html());
+    } else {
+		var hoverDiv = window.parent.jQuery("#itemMessage_" + asin);  
+	    var productDiv = hoverDiv.closest("div.smallProduct");
+	    
+	    hoverDiv.html(message);
+	    hoverDiv.width(productDiv.width() + 20);
+	    
+	    var topOffset = -(productDiv.height() / 2) - hoverDiv.height();
+	    var leftOffset = -(hoverDiv.width() - productDiv.width());
+	    
+	    hoverDiv.show();
+	    hoverDiv.css({top: topOffset, left: leftOffset});
+	    hoverDiv.css("color", "white");
+	    hoverDiv.css("background-color", "#669900");
+    }
+}
+
+function submitEmwaRequestForm(form) {
+	var asin = form.find("input[name='asin']").val(),
+    refId = form.find("input[name='refId']").val(),
+    action = form.find("input[name='action']").val(),
+    orderId = form.find("input[name='orderId']").val(),
+    quantityRequested = form.find("input[name='quantityRequested']").val(),
+    emwaReferer = form.find("input[name='emwaReferer']").val(),
+    actionVariant = form.find("input[name='actionVariant']");
+    if (actionVariant.length &gt; 1) {
+        actionVariant = actionVariant.filter(":checked");
+    }
+    actionVariant = actionVariant.val();
+    makeEmwaRequestCall(asin, action, orderId, refId, actionVariant, quantityRequested, emwaReferer);
+}
+
+function submitEmwaRequest(event) {
+	event.preventDefault();
+	var form = jQuery(event.target).parents("form").andSelf();
+	submitEmwaRequestForm(form);
+}
+  </script>
+  <script>
+   &lt;!--
+
+jQuery(document).ready(function() {
+    jQuery("div.secondaryActions div.saveToListAction a").click(getListPopover);
+    jQuery("#pastPurchases div.densePPItem img.menuTriangle").click(getListPopover);
+   	var whenAvailableBlock = jQuery("div.whenAvailableBlock"); 
+    whenAvailableBlock.find("input.whenAvailableButton").click(
+    		function(event) {getSavingsPopover(event, "WhenAvailablePopover");}
+    );
+    whenAvailableBlock.find("input[value='submit'], input[type=submit]").click(submitEmwaRequest);
+    whenAvailableBlock.find(".more").click(getAddToMyNextOrderPopover);
+    jQuery(document).keypress(
+		function(e) { 
+			if(e.keyCode == 27) {
+				closePopover();
+			} 
+		}
+	);
+	jQuery(document).click(
+		function(e) {
+			if(jQuery("div.savingsPopover").length &gt; 0 &amp;&amp; jQuery(e.target).parents(".savingsPopover").length == 0) {
+				closePopover();
+			}
+		}
+	);
+
+	setUpAllYourLists();
+	setBuyingPatternsInfo();
+	
+	
+});
+
+function setUpAllYourLists() {
+	var allYourLists = jQuery("#allYourLists");
+    jQuery(allYourLists).find(".pages a.next").click(goToNextListPage);
+    jQuery(allYourLists).find(".pages a.prev").click(goToPrevListPage);
+    
+    jQuery(allYourLists).find(".externalCount").each(function() {
+        var $t = jQuery(this);
+        $t.load('ExternalListTeaser', {
+            externalId : $t.attr('data-external-id'),
+            externalType : $t.attr('data-type')
+        });
+    });
+
+    jQuery(allYourLists).find("a.delete").click(deleteList);
+    jQuery(allYourLists).find(".createList").click(displayCreateListPopover);
+}
+
+function displayCreateListPopover(event) {
+    jQuery.get(
+	    "NewListPopover?referer=" + "%2Fproduct%3Frank%3D38%26asin%3DB0010AYJXI%26sr%3D1-38%26tag%3Dimg%26qid%3D119355486",
+	    function(ajax) {
+	        jQuery("#alphaLayer").addClass("disablePage");
+	        var wrapper = jQuery("&lt;div&gt;&lt;/div&gt;").addClass("listPopoverWrapper");
+	        var infoBox = jQuery("&lt;div&gt;&lt;/div&gt;").attr("id", "infoBox").append(ajax).css("top", jQuery(window).scrollTop() + "px");
+	        wrapper.append(infoBox);
+	        jQuery("body").append(wrapper);
+	        jQuery("#infoBox_close .closeWindow a").click(closePopover);
+	    }
+	);
+}
+
+function deleteList(event) {
+	event.preventDefault();
+	var allYourLists = jQuery("#allYourLists"),
+	    listItem = jQuery(event.target).parents("li:first"),
+	    listId = listItem.find(".listId").text(),
+	    totalListCount = parseInt(jQuery(allYourLists).find("#totalListCount").text()),
+	    fromVal = parseInt(jQuery(allYourLists).find("#pageFrom").text()),
+	    toVal = parseInt(jQuery(allYourLists).find("#pageTo").text());
+	jQuery.post("UpdateList?id=" + listId + "&delete;=true",
+			    {},
+			    function() {
+			    	if (toVal == totalListCount) {
+                        toVal--;
+                        jQuery(allYourLists).find("#pageTo").empty().append(toVal);
+                    }
+                    totalListCount --;
+                    jQuery(allYourLists).find("#totalListCount").empty().append(totalListCount);
+				    listItem.fadeOut(
+					        100,
+			        	    function() {
+				        	    listItem.remove();
+				        	    var i = 0;
+				        	    jQuery(allYourLists).find("li").each(function(){
+				        	    	jQuery(this).attr("id", "yourList-" + i);
+				        	    	i++;
+				        	    });
+					            for (var i = 0; i &lt; totalListCount; i++) {
+					            	if (fromVal - 1 &lt;= i &amp;&amp; i &lt;= toVal - 1) {
+                                        jQuery(allYourLists).find("#yourList-" + i).show();
+                                    } else {
+                                        jQuery(allYourLists).find("#yourList-" + i).hide();
+                                    }
+					            }         
+					        }
+					 );
+			    }
+    );
+}
+
+function goToNextListPage(event) {
+    event.preventDefault();
+    var allYourLists = jQuery("#allYourLists"),
+        listsPerPage = parseInt(jQuery(allYourLists).find("#listsPerPage").text()),
+        totalListCount = parseInt(jQuery(allYourLists).find("#totalListCount").text()),
+        fromVal = parseInt(jQuery(allYourLists).find("#pageFrom").text()),
+        toVal = parseInt(jQuery(allYourLists).find("#pageTo").text());
+    if (toVal &lt; totalListCount) {
+    	var newTo = Math.min(toVal + listsPerPage, totalListCount),
+            newFrom = toVal + 1;
+    	jQuery(allYourLists).find(".prev").show();
+        jQuery(allYourLists).find("#pageFrom").empty().append(newFrom);
+        jQuery(allYourLists).find("#pageTo").empty().append(newTo);
+        if (newTo &gt;= totalListCount) {
+        	jQuery(allYourLists).find(".next").hide();
+        }
+        switchAllYourListsPage(fromVal, toVal, newFrom, newTo);
+    }
+}
+
+function goToPrevListPage(event) {
+    event.preventDefault();
+    var allYourLists = jQuery("#allYourLists"),
+        listsPerPage = parseInt(jQuery(allYourLists).find("#listsPerPage").text()),
+        fromVal = parseInt(jQuery(allYourLists).find("#pageFrom").text()),
+        toVal = parseInt(jQuery(allYourLists).find("#pageTo").text());
+    if (fromVal &gt; 1) {
+    	var newFrom = Math.max(1, fromVal - listsPerPage),
+    	    newTo = fromVal - 1;
+    	jQuery(allYourLists).find(".next").show();
+        jQuery(allYourLists).find("#pageFrom").empty().append(newFrom);
+        jQuery(allYourLists).find("#pageTo").empty().append(newTo);
+        if (newFrom &lt;= 1) {
+            jQuery(allYourLists).find(".prev").hide();
+        }
+        switchAllYourListsPage(fromVal, toVal, newFrom, newTo);
+    }
+}
+
+function switchAllYourListsPage(fromVal, toVal, newFrom, newTo) {
+	var allYourLists = jQuery("#allYourLists");
+	for (var i = fromVal - 1; i &lt; toVal; i++) {
+        jQuery(allYourLists).find("#yourList-" + i).hide();
+    }
+    for (var i = newFrom - 1; i &lt; newTo; i++) {
+        jQuery(allYourLists).find("#yourList-" + i).show();
+    }
+}
+
+function setBuyingPatternsInfo() {
+	if (jQuery("div.bpInfo").length &gt; 0) {
+		var refId = jQuery("input[name='refId']").val();
+		jQuery.getJSON("BuyingPatterns",
+	        {'refId':refId},
+	        function(data) {
+	            for (var i = 0; i &lt; data.length; i++) {
+		            var infoDiv = jQuery("#bpInfo-" + data[i].asin);
+		            if (infoDiv.length &gt; 0) {
+			            infoDiv.find("span.bpQtyPerOrder").append(data[i].qtyPerOrder);
+			            var weeks = " week";
+			            if (data[i].period &gt; 1) {
+			                weeks = " weeks";
+			            }
+		                infoDiv.find("span.bpPeriod").append(data[i].period + weeks);
+		                var savingsElem = infoDiv.find("span.bpSavings");
+		                if (savingsElem.length &gt; 0) { 
+		                	savingsElem.append(data[i].savings);
+		                }
+		                infoDiv.fadeIn(100);
+		            }
+	            }
+	        })
+	}
+}
+
+function displayListPopover(form) {
+	var asin = form.children("input[name='asin']").attr("value");
+    var available = form.children("input[name='available']").attr("value");
+    var inStock = (available == null) || (available == "true");
+	
+	jQuery.get(
+        "displayListsToAdd?asin=" + asin + "&referer;=" + "%2Fproduct%3Frank%3D38%26asin%3DB0010AYJXI%26sr%3D1-38%26tag%3Dimg%26qid%3D119355486",
+        function(ajax) {
+            jQuery("#alphaLayer").addClass("disablePage");
+            var wrapper = jQuery("&lt;div&gt;&lt;/div&gt;").addClass("listPopoverWrapper");
+            var infoBox = jQuery("&lt;div&gt;&lt;/div&gt;").attr("id", "infoBox").append(ajax).css("top", jQuery(window).scrollTop() + "px");
+            wrapper.append(infoBox);
+            jQuery("body").append(wrapper);
+            if(!inStock) {
+                jQuery("#infoBox_nextDelivery").addClass("disabled");
+                jQuery("input[name='addToOpenOrder']").attr("disabled", "disabled").removeAttr("checked");
+            }
+            jQuery("#infoBox_close .closeWindow a").click(closePopover);
+            jQuery("#addListItemForm input[type='submit']").click(saveList);
+            jQuery("#addToStandingOrderForm input[type='submit']").click(saveAutomaticDelivery);
+            jQuery("input[name='addToAD']").click(function(event) { jQuery(event.target).attr("disabled", "disabled"); });
+        }
+    );
+}
+
+function getListPopover(event) {
+	event.preventDefault();
+    var form = jQuery(event.target).parents('form');
+    displayListPopover(form);
+}
+
+// casepackQty is optional
+function getADPopover(event, casepackQty) {
+	event.preventDefault();
+	var form = jQuery(event.target).parents('form');
+    var asin = form.children("input[name='asin']").attr("value");
+    var available = form.children("input[name='available']").attr("value");
+    var inStock = (available == null) || (available == "true");
+
+    jQuery.get(
+		"AutomaticDeliveryPopover?asin="+asin,
+		function(ajax) {
+			closePopover();
+			jQuery("#alphaLayer").addClass("disablePage");
+   	   	    var wrapper = jQuery("&lt;div&gt;&lt;/div&gt;").addClass("listPopoverWrapper");
+   	   	    var infoBox = jQuery("&lt;div&gt;&lt;/div&gt;").attr("id", "infoBox").append(ajax).css("top", jQuery(window).scrollTop() + "px");
+   	   	    wrapper.append(infoBox);
+   	   	    jQuery("body").append(wrapper);
+   	   	    if(!inStock) {
+   	   	        jQuery("#infoBox_nextDelivery").addClass("disabled");
+   	   	        jQuery("input[name='addToOpenOrder']").attr("disabled", "disabled").removeAttr("checked");
+   	   	    }
+   	   	    jQuery("#infoBox_close .closeWindow a").click(closePopover);
+   	   	    jQuery("#addListItemForm input[type='submit']").click(saveList);
+   	   	    jQuery("#addToStandingOrderForm input[type='submit']").click(saveAutomaticDelivery);
+   	   	    jQuery("input[name='addToAD']").click(function(event) { jQuery(event.target).attr("disabled", "disabled"); });
+   	   	    if(null != casepackQty &amp;&amp; casepackQty &gt; 0) {
+				jQuery("#addToStandingOrderForm input[name='itemQty']").attr("value", casepackQty);
+   	   	    }
+		}
+	);
+}
+
+function displaySavingsPopover(form, action) {
+	var asin = form.find("input[name='asin']").val();
+    var refId = form.find("input[name='refId']").val();
+    var offsets = jQuery(event.target).offset();
+    jQuery.get(
+        action+"?asin="+asin+"&refId;="+refId + "&referer;=" + "%2Fproduct%3Frank%3D38%26asin%3DB0010AYJXI%26sr%3D1-38%26tag%3Dimg%26qid%3D119355486",
+        function(ajax) {
+            closePopover();
+            jQuery("body").append(ajax);
+            var savingsPopover = jQuery("div.savingsPopover");
+            savingsPopover.css({top: offsets.top+15, left: offsets.left-16 });
+            savingsPopover.find(".closeWindow a").click(closePopover);
+            savingsPopover.find(".popoverAddToCart, .popoverAddCaseToCart").click(function() { jQuery("div.savingsPopover").hide(); });
+            savingsPopover.find(".popoverAddToAD").click(getADPopover);
+            savingsPopover.find(".popoverAddCaseToAD").click(
+                function(event) {
+                    var casepackQty = jQuery("div.savingsPopover input[name='casepackQty']").attr("value");
+                    getADPopover(event, casepackQty);
+                }
+            );
+            savingsPopover.find("tr").mouseover(function(e) { jQuery(e.target).parents("tr").css("background-color", "rgb(210,211,184)"); })
+                                        .mouseout(function(e) { jQuery(e.target).parents("tr").css("background-color", "#F1F2D3"); });
+        }
+    );
+}
+
+function getSavingsPopover(event, action) {
+	event.preventDefault();
+	var form = jQuery(event.target).parents("form");
+	displaySavingsPopover(form, action);
+}
+
+function closePopover(event) {
+	if(null != event) {	event.preventDefault(); }
+	jQuery(".listPopoverWrapper, .savingsPopover").remove();
+	jQuery("#alphaLayer").removeClass("disablePage");
+}
+
+function saveList(event) {
+	event.preventDefault();
+    var asin = jQuery("#infoBox_box input[name='addToListAsin']").attr("value");
+    var listId = 0;
+    listId = jQuery("#addListItemForm input:checked").attr("value");
+    var refId = jQuery("input[name='refId']").attr("value");
+    if(listId != -1) {
+        jQuery.get(
+            "AddListItem",
+            {asin:asin,
+             id:listId,
+             reload:'false',
+             refId:refId},
+        	function(ajax) {
+            	saveNonADListSuccess(asin, ajax);
+            }
+        );
+    } else {
+        var name = jQuery("#addListItemForm input[name='name']").attr("value");
+        jQuery.post(
+        	"CreateNewList?asin="+asin+"&name;="+name+"&reload;=false",
+            function(ajax) {
+        		saveNonADListSuccess(asin, ajax);
+            }
+        );
+    }
+}
+
+function saveNonADListSuccess(asin, ajax) {
+		jQuery("div.listPopoverWrapper").remove();
+		jQuery("#alphaLayer").removeClass("disablePage");
+
+		var updatedMsg = jQuery("&lt;div&gt;&lt;/div&gt;").attr("id", "updatedMsg").addClass("savedToList").append(ajax);
+		var listId = jQuery(updatedMsg).find("span.listId").text();
+		var saveDiv = jQuery("#saveToList"+asin);
+		saveDiv.parent().append(updatedMsg);
+		var tag = jQuery("#numitems-" + listId);
+		var numItems = parseInt(tag.text().substring(1));
+		numItems++;
+		tag.empty();
+		tag.append("(" + numItems + " items)");
+}
+
+function saveListSuccess(asin, ajax) {
+	refreshShoppingCart();
+	
+	jQuery("div.listPopoverWrapper").remove();
+	jQuery("#alphaLayer").removeClass("disablePage");
+
+	var ajaxArray = jQuery.trim(ajax).split("\n");
+    var attrs = [];
+    for(var i = 0; i &lt; ajaxArray.length; i++) {
+        var pair = jQuery.trim(ajaxArray[i]).split(":");
+        attrs[pair[0]] = pair[1];
+    }
+    var addToADMsg = jQuery("&lt;div&gt;&lt;/div&gt;").attr("id", "updatedMsg").addClass("savedToList");
+    var adLink = jQuery("&lt;a&gt;&lt;/a&gt;").attr("href", "AutomaticDelivery").text("Automatic Delivery");
+    if(attrs["error"] == "true") {
+        addToADMsg.text("An error has occurred.");
+    } else if(attrs["alreadyAdded"] == "true") {
+        addToADMsg.text("Item already on ").append(adLink);
+    } else {
+        if(attrs["SOIAlcoholError"] == "true") {
+        	addToADMsg.text("Must be 21 or older to purchase. This item is only available for Attended Delivery.").css("background-color", "#FFCC00");
+        }
+	    else {
+	    	addToADMsg.append("Saved " + attrs["qtyAdded"]);
+	        if(parseInt(attrs["qtyAdded"]) &gt; parseInt(attrs["qtyRequested"])) {
+	            addToADMsg.append(" (min qty " + attrs["qtyAdded"] + ")");
+	        }
+	        addToADMsg.append(" to ").append(adLink);
+	    }
+    }
+    jQuery("#saveToList"+asin).parent().append(addToADMsg);
+
+    if(attrs["addToOpenOrderError"] == "true") {
+		var openOrderError = jQuery("&lt;div&gt;&lt;/div&gt;").addClass("savedToList").css("white-space", "normal").css("background-color", "#FFCC00")
+												  .text("An error occurred trying to add this item to your open Automatic Delivery orders.");
+		jQuery("#saveToList"+asin).parent().append(openOrderError);
+    } else {
+        if(attrs["openOrderAlcoholError"] == "true") {
+        	var openOrderError = jQuery("&lt;div&gt;&lt;/div&gt;").addClass("savedToList").css("white-space", "normal").css("background-color", "#FFCC00")
+			  .text("Could not add item to your open Automatic Delivery orders. This item is only available for Attended Delivery.");
+			jQuery("#saveToList"+asin).parent().append(openOrderError);
+        } else {
+            
+		    var openOrderData = attrs["qtyAddedForOpenOrders"].split(",");
+		    for(var i = 0; i &lt; Math.floor(openOrderData.length / 2); i++) {
+		        var date = openOrderData[i * 2];
+		        var qty = parseInt(openOrderData[i * 2 + 1]);
+		        var openOrderMsg = jQuery("&lt;div&gt;&lt;/div&gt;").addClass("savedToList").css("white-space", "normal");
+		        if(qty &lt; parseInt(attrs["qtyRequested"])) {
+		            openOrderMsg.text(attrs["qtyRequested"] + " requested, but we could only add " + qty + " to your " + date + " delivery.").css("background-color", "#FFCC00");
+		        } else {
+		            openOrderMsg.text("Added " + qty + " to your " + date + " delivery.");
+		        }
+		        jQuery("#saveToList"+asin).parent().append(openOrderMsg);
+		    }
+    	}
+	}
+}
+
+function addStandingOrderItem(refId, asin, quantity, frequency, addToOpenOrder) {
+	jQuery.get(
+        "AddStandingOrderItem",
+        {
+            refId:refId,
+            asin:asin,
+            quantity: quantity,
+            frequency: frequency,
+            addToOpenOrder: addToOpenOrder
+        },
+        function(ajax) {
+            if (ajax == 'signIn') {
+            	signInUrl = "%2Fproduct%3Frank%3D38%26asin%3DB0010AYJXI%26sr%3D1-38%26tag%3Dimg%26qid%3D119355486" + "%26callOnLoad%3DautoAddStandingOrderItem-" + asin + "-" + quantity + "-" + frequency;
+            	window.location = "SignIn?signInSuccessUrl=" + signInUrl;
+            	return;
+            }
+            
+            saveListSuccess(asin, ajax);
+        }
+    );
+}
+
+function autoAddStandingOrderItem(asin, quantity, frequency) {
+	var refId = "";
+	addStandingOrderItem(refId, asin, quantity, frequency, false);
+}
+
+function saveAutomaticDelivery(event) {
+    event.preventDefault();
+    var asin = jQuery("#addToStandingOrderForm input[name='addToAutomaticDeliveryAsin']").attr("value");
+    var frequency = 1;
+    var quantity = 1;
+    var addToOpenOrder = false;
+    var refId = jQuery("#addToStandingOrderForm input[name='refId']").attr("value");
+    frequency = jQuery("#addToStandingOrderForm input[name='numberOfWeeks']:checked").attr("value");
+    quantity = parseInt(jQuery("#addToStandingOrderForm input[name='itemQty']").attr("value"));
+    if(isNaN(quantity)) {
+        quantity = 1;
+    }
+    
+    addToOpenOrder = jQuery("#addToStandingOrderForm input[name='addToOpenOrder']").attr("checked");
+    
+
+    addStandingOrderItem(refId, asin, quantity, frequency, addToOpenOrder);
+}
+
+
+
+--&gt;
+  </script>
+  <script>
+   jQuery(document).ready(function() {
+jQuery('.top_menu').hover(
+      function () {
+       jQuery(this).addClass("hovering");
+       jQuery(this).find('img').attr("src", function() {
+         return this.src.replace(/sitewideMsgArrow.gif/,"sitewideMsgArrow-over.gif");
+       });
+       
+      }, 
+      function () {
+       jQuery(this).removeClass("hovering");
+       jQuery(this).find('img').attr("src", function() {
+         return this.src.replace(/sitewideMsgArrow-over.gif/,"sitewideMsgArrow.gif");
+       });
+       
+      }
+);
+
+
+if(jQuery("#bigRadishDiv").length &gt; 0) {
+	jQuery("#bigRadishResults").hide();
+
+	jQuery("#bigRadishResults").load("BigRadishNav", function() {
+		jQuery("#bigRadishResults").show();
+	});
+}
+
+});
+  </script>
+  <script>
+   jQuery(document).ready(function() {
+	
+	jQuery(".draggable").draggable({
+		containment: 'document',
+		scroll: true,
+		opacity: 0.8,
+		cursor: 'move',
+		cursorAt: {top: 25, left: 25},
+		zIndex: 1000,
+		helper: function() {
+			var helper = jQuery(jQuery(this).find("img")[0]).clone();
+			if (helper.length == 0) {
+				helper = jQuery(jQuery(this).parents(".item").find("img")[0]).clone();
+			}
+			helper.attr("width", "50");
+			return helper;
+		},
+		start: function(event, ui) {
+			jQuery("#inlineCartColumn").css("z-index", "-1");
+		},
+		stop: function(event, ui) {
+			jQuery("#inlineCartColumn").css("z-index", "999");
+		}
+		
+	});
+	
+	jQuery(".droppable").droppable({
+		accept: '.draggable',
+		drop: function(event, ui) {
+			var formContainer = jQuery(ui.draggable).parents(".item");
+			if (formContainer.length == 0) {
+				formContainer = jQuery(ui.draggable).siblings("div.buying");
+			}
+			jQuery(jQuery(formContainer).find("form.addToCartForm")[0]).trigger("submit");
+		},
+		over: function(event, ui) {
+			jQuery(jQuery(this).contents().find("div#inlineCart")).css("background-color", "#f5ffd6");
+		},
+		out: function(event, ui) {
+			jQuery(jQuery(this).contents().find("div#inlineCart")).css("background-color", "#ffffff");
+		}
+	})
+});
+  </script>
+  <link rel="shortcut icon" href="http://g-ecx.images-amazon.com/images/G/01/omaha/images/favicon._V196790536_.ico" type="image/vnd.microsoft.icon" />
+  <link rel="icon" href="http://g-ecx.images-amazon.com/images/G/01/omaha/images/favicon._V196790536_.ico" type="image/vnd.microsoft.icon" />
+  <link rel="search" type="application/opensearchdescription+xml" title="Search AmazonFresh" href="opensearch.xml" />
+ </head>
+ <body id="searchAndBrowse" onload="recordMetrics();">
+  <div id="alphaLayer">
+   <div>
+    <!-- BEGIN header -->
+    <div id="header" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/01/omaha/images/flair/flair_stpats2012._V137674624_.png');">
+     <a href="http://fresh.amazon.com/ViewList?id=14151">
+      <img src="http://g-ecx.images-amazon.com/images/G/01/omaha/images/shim._V177483288_.png" height="74" width="357" style="position: absolute; top: 0; right: 0" />
+     </a>
+     <!-- BEGIN tabNavigation -->
+     <div id="tabNavigation">
+      <ul>
+       <li>
+        <a href="http://fresh.amazon.com/Gateway?tab=1" id="shopAmazonFresh" title="You are shopping on AmazonFresh">
+         <span>
+          Shop AmazonFresh
+         </span>
+        </a>
+       </li>
+       <li>
+        <a href="http://fresh.amazon.com/Search?input=&amp;sort=relevance&amp;browseNode=0&amp;specialty=&amp;comNow=1" id="shopAmazonNow" title="Shop Amazon.com now">
+         <span>
+          Shop Amazon.com now
+         </span>
+        </a>
+       </li>
+      </ul>
+     </div>
+     <!-- END tabNavigation -->
+     <!-- BEGIN preferences -->
+     <div id="preferences">
+      <!-- BEGIN salutation -->
+      <div id="salutation">
+       Please
+       <a href="https://fresh.amazon.com/SignIn?signInSuccessUrl=%2Fproduct%3Frank%3D38%26asin%3DB0010AYJXI%26sr%3D1-38%26tag%3Dimg%26qid%3D119355486">
+        sign in
+       </a>
+       .
+      </div>
+      <!-- END salutation -->
+      <!-- BEGIN globalNav -->
+      <div id="globalNav">
+       <ul>
+        <li>
+         <a href="https://fresh.amazon.com/Account" id="lnk-gbl-myAccount">
+          Your Account
+         </a>
+        </li>
+        <li>
+         <a href="http://fresh.amazon.com/help" id="lnk-gbl-help">
+          Help &amp; FAQ
+         </a>
+        </li>
+        <li>
+         <a href="http://fresh.amazon.com/contactUs" id="lnk-gbl-contact">
+          Contact Us
+         </a>
+        </li>
+        <li>
+         <a href="https://fresh.amazon.com/SignIn?signInSuccessUrl=%2Fproduct%3Frank%3D38%26asin%3DB0010AYJXI%26sr%3D1-38%26tag%3Dimg%26qid%3D119355486">
+          Sign In
+         </a>
+        </li>
+       </ul>
+      </div>
+      <!-- END globalNav -->
+     </div>
+     <!-- END preferences -->
+    </div>
+    <!-- END header -->
+    <div id="pageBody">
+     <div id="contentColumn" class="column">
+      <div id="toolbar">
+       <!--  BEGIN tab navigation -->
+       <div id="primaryNavigation">
+        <div class="old">
+         <ul>
+          <li>
+           <a href="http://fresh.amazon.com/Gateway?tn=1" id="lnk-tab-gateway">
+            Home
+           </a>
+          </li>
+          <li>
+           <a href="http://fresh.amazon.com/Search?tn=1" id="lnk-tab-shop">
+            Shop
+           </a>
+          </li>
+          <li>
+           <a href="https://fresh.amazon.com/Favorites" id="lnk-tab-lists">
+            Past Purchases
+           </a>
+          </li>
+          <li>
+           <a href="http://fresh.amazon.com/MyList" id="lnk-tab-mylists">
+            My Shopping List
+           </a>
+          </li>
+          <li>
+           <a href="http://fresh.amazon.com/Bestsellers" id="lnk-tab-lists">
+            Bestsellers
+           </a>
+          </li>
+          <li>
+           <a href="http://fresh.amazon.com/Deals" id="lnk-tab-specials">
+            Deals
+           </a>
+          </li>
+          <li>
+           <a href="http://fresh.amazon.com/blog" id="lnk-tab-lists">
+            Blog
+           </a>
+          </li>
+          <li>
+           <a href="http://fresh.amazon.com/AutomaticDelivery" id="lnk-tab-autodelivery">
+            Automatic Delivery
+           </a>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <!-- END tab navigation -->
+       <!-- BEGIN search -->
+       <div id="search">
+        <form method="get" id="freshSearchForm" action="Search">
+         <input class="textField" type="search" results="5" autosave="fresh.amazon.com" name="input" size="40" maxlength="100" tabindex="1" id="searchAutocomplete" value="" />
+         <input type="hidden" name="predictiveSearchFlag" id="predictiveSearchFlag" value="false" />
+         <input type="submit" value="Search AmazonFresh" tabindex="2" />
+         <input type="hidden" name="resultsPerPage" value="30" />
+        </form>
+       </div>
+       <!-- END search -->
+       <!-- BEGIN breadcrumb -->
+       <div id="breadcrumb">
+        <div>
+         <div>
+          &lsaquo;
+          <a href="http://fresh.amazon.com/">
+           Return to previous page
+          </a>
+         </div>
+        </div>
+       </div>
+       <!-- END breadcrumb -->
+      </div>
+      <!-- message -->
+      <!-- end message -->
+      <div id="detailPageImages">
+       <div class="productImage" id="mainImgWrapper">
+        <img src="http://ecx.images-amazon.com/images/I/41ZueF1wtAL.01._SR280,280_.jpg" alt="Product Image" />
+       </div>
+      </div>
+      <!--[if IE]&gt;
+&lt;style&gt;
+	.centerslate span {
+ 	    display: inline-block;
+	}
+&lt;/style&gt;
+&lt;![endif]-->
+      <!-- BEGIN buying -->
+      <div class="buying">
+       <h1>
+        Alan Wake by Microsoft (May 18,  2010) (Xbox 360)
+       </h1>
+       <div class="byline">
+        Other products by
+        <a href="http://fresh.amazon.com/Search?brand=Microsoft">
+         Microsoft
+        </a>
+       </div>
+       <div class="ratingMinimal">
+        <img src="http://g-ecx.images-amazon.com/images/G/01/x-locale/common/customer-reviews/ratings/stars-4-0._V25749327_.gif" align="absbottom" />
+        (243)
+       </div>
+       <div class="moreDetails">
+        <!--&lt;a href="#productDetails"&gt;more about this product&lt;/a&gt;-->
+       </div>
+       <div class="item">
+        <div class="itemPrice">
+         <div class="price">
+          <span class="value">
+           $19.99
+          </span>
+         </div>
+        </div>
+        <div id="B0010AYJXI" class="itemActions">
+         <!-- BEGIN Add to Cart/EMWA button -->
+         <img src="http://g-ecx.images-amazon.com/images/G/01/omaha/images/buttons/btn-addToCart-md-disabled.gif" title="Please sign in to begin shopping" alt="Add to Cart" />
+         <div class="pleaseSignIn">
+          (Please
+          <a href="https://fresh.amazon.com/SignIn?signInSuccessUrl=%2Fproduct%3Frank%3D38%26asin%3DB0010AYJXI%26sr%3D1-38%26tag%3Dimg%26qid%3D119355486">
+           sign in
+          </a>
+          to begin shopping)
+         </div>
+         <!-- END Add to Cart/EMWA button -->
+         <!-- BEGIN Case Pack messaging -->
+         <!-- END Case Pack messaging -->
+         <!-- BEGIN Automatic Delivery messaging -->
+         <!-- END Automatic Delivery messaging -->
+         <!-- Don't display 'Save to list' on .com tab -->
+        </div>
+       </div>
+      </div>
+      <br clear="all" />
+      <hr />
+      <div class="detailPageWidget">
+       <a name="productFeatures">
+       </a>
+       <h2>
+        Product Features
+       </h2>
+       <ul style="list-style-type: disc;">
+        <li>
+         From Remedy, the masters of cinematic action, comes a 3rd person action game filled with overwhelming odds
+        </li>
+        <li>
+         Alan Wake is like a tightly paced thriller TV series, offering endless twists and cliffhangers, and building up to an epic conclusion.
+        </li>
+        <li>
+         Light is your greatest weapon and only protection as dark?ness takes over everything and everyone, and turns them against you.
+        </li>
+        <li>
+         Episodic narrative
+        </li>
+        <li>
+         Suspenseful and gripping storyline
+        </li>
+       </ul>
+      </div>
+      <div class="detailPageWidget">
+       <a name="productDescription">
+       </a>
+       <h2>
+        Product Description
+       </h2>
+       <p>
+        Alan Wake, developed by Remedy Entertainment for the Xbox 360, is psychological action thriller that incorporates the elements of a TV show with the interactivity of a video game for a uniquely immersive experience. A suspenseful story told in successive episodes, this release will treat players to top-notch graphics that give the game a stunning cinematic look.
+       </p>
+       <p>
+        <style type="text/css">
+         .caption { font-family: Verdana, Helvetica neue, Arial, serif; font-size: 10px; font-weight: bold; font-style: italic; } ul.indent { list-style: inside disc; text-indent: -15px; } table.callout { font-family: verdana; font-size: 11px; line-height: 1. 3em; } td.vgoverview { height: 125px; background: #9DC4D8 url(http://images.amazon.com/images/G/01/electronics/detail-page/callout-bg.png) repeat-x; border-left: 1px solid #999999; border-right: 1px solid #999999; padding-left: 20px; padding-right: 20px; padding-bottom: 10px; width: 250px; font-family: verdana; font-size: 12px; } img.withlink {border:1px #777777 solid;}
+        </style>
+        <table align="left" width="250" cellpadding="15" cellspacing="15">
+         <tr>
+          <td>
+           <a href="https://images-na.ssl-images-amazon.com/images/G/01/videogames/detail-page/B000FKBEXW-1-lg.jpg" onclick="window.open(this.href,null,'width=820,height=470'); return false;">
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/videogames/detail-page//B000FKBEXW-1-sm.jpg" border="1" class="withlink" align="top" />
+           </a>
+           <br />
+           <br />
+           <span class="caption">
+            Search for clues to figure out the mystery.
+            <a href="https://images-na.ssl-images-amazon.com/images/G/01/videogames/detail-page/B000FKBEXW-1-lg.jpg" onclick="window.open(this.href,null,'width=820,height=470'); return false;">
+             View larger
+            </a>
+            .
+           </span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <a href="https://images-na.ssl-images-amazon.com/images/G/01/videogames/detail-page/B000FKBEXW-2-lg.jpg" onclick="window.open(this.href,null,'width=820,height=470'); return false;">
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/videogames/detail-page//B000FKBEXW-2-sm.jpg" border="1" class="withlink" align="top" />
+           </a>
+           <br />
+           <br />
+           <span class="caption">
+            Alan Wake slowly realizes that his nightmares are coming true.
+            <a href="https://images-na.ssl-images-amazon.com/images/G/01/videogames/detail-page/B000FKBEXW-2-lg.jpg" onclick="window.open(this.href,null,'width=820,height=470'); return false;">
+             View larger
+            </a>
+            .
+           </span>
+          </td>
+         </tr>
+        </table>
+        <table align="right" width="250" cellpadding="15" cellspacing="15">
+         <tr>
+          <td>
+           <a href="https://images-na.ssl-images-amazon.com/images/G/01/videogames/detail-page/B000FKBEXW-3-lg.jpg" onclick="window.open(this.href,null,'width=820,height=470'); return false;">
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/videogames/detail-page//B000FKBEXW-3-sm.jpg" border="1" class="withlink" align="top" />
+           </a>
+           <br />
+           <br />
+           <span class="caption">
+            You'll be able to freely roam the town of Bright Falls.
+            <a href="https://images-na.ssl-images-amazon.com/images/G/01/videogames/detail-page/B000FKBEXW-3-lg.jpg" onclick="window.open(this.href,null,'width=820,height=470'); return false;">
+             View larger
+            </a>
+            .
+           </span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <a href="https://images-na.ssl-images-amazon.com/images/G/01/videogames/detail-page/B000FKBEXW-4-lg.jpg" onclick="window.open(this.href,null,'width=820,height=470'); return false;">
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/videogames/detail-page//B000FKBEXW-4-sm.jpg" border="1" class="withlink" align="top" />
+           </a>
+           <br />
+           <br />
+           <span class="caption">
+            High definition graphics and lighting effects make for a spectacular looking game.
+            <a href="https://images-na.ssl-images-amazon.com/images/G/01/videogames/detail-page/B000FKBEXW-4-lg.jpg" onclick="window.open(this.href,null,'width=820,height=470'); return false;">
+             View larger
+            </a>
+            .
+           </span>
+          </td>
+         </tr>
+        </table>
+        <b>
+         A Nightmare Turns to Life
+        </b>
+        <br />
+        Alan Wake is a bestselling horror novelist who moved to the small town of Bright Falls, Washington after suffering from insomnia and depression. Wake is able to sleep again, but after he meets a mysterious woman, he begins to have terrible nightmares. As he puts these nightmares on paper for a new book, he soon notices that all the things that happen in his book are coming true right before his eyes.
+       </p>
+       <p>
+        Using cinematic effects and technology such as real-time lighting, shadows and reflections, you'll be treated to a game that is oozing with atmosphere and able to invoke an emotional response from the player. The realistic environment features real-time weather and light changes that effect the game play for a remarkably immersive experience.
+       </p>
+       <p>
+        <b>
+         Explore an Entire Town
+        </b>
+        <br />
+        The town of Bright Falls is 100 square kilometers, and players will be able to roam through this incredibly detailed area any way they like, roaming the town or wandering out to the lakes, forest, satellite towns, and more. The game gives the player goals, but how he chooses to go about completing them is up to him. Clues are scattered throughout the town, and solving mysteries will require players to pay close attention to the little details.
+       </p>
+       <p>
+        <b>
+         Intense Combat
+        </b>
+        <br />
+        In addition to solving puzzles and exploration, the game also pushes players into serious action and combat; when night comes, creatures will take their best shots at Alan, and you'll have to be quick with strategy as well as weapons to beat them back.
+       </p>
+       <p>
+        Alan Wake presents an unusual and new gaming experience that features a riveting, multi-layered story while giving the player the ability to freely roam a giant environment. It supports Dolby Digital sound.
+        <br clear="all" />
+       </p>
+      </div>
+      <div class="detailPageWidget">
+       <a name="productDetails">
+       </a>
+       <h2>
+        Product Details
+       </h2>
+       <ul>
+        <li>
+         <strong>
+          ASIN:
+         </strong>
+         B0010AYJXI
+        </li>
+       </ul>
+      </div>
+      <a name="reviewSection">
+      </a>
+      <div class="reviewSection">
+       <h2>
+        Customer Ratings and Reviews
+       </h2>
+       <br />
+      </div>
+      <div class="disclaimerText">
+       <strong>
+        Freshness Guarantee:
+       </strong>
+       AmazonFresh guarantees every product will be delivered to your home or ready for pickup well within the manufacturer's recommended
+       <i>
+        use by
+       </i>
+       ,
+       <i>
+        sell by
+       </i>
+       ,
+       <i>
+        best by
+       </i>
+       , or
+       <i>
+        expiration
+       </i>
+       date.
+      </div>
+      <div class="disclaimerText">
+       <strong>
+        Disclaimer:
+       </strong>
+       While we work to ensure that product information is correct, on occasion manufacturers may alter their ingredient lists. Actual product packaging and materials may contain more and/or different information than that shown on our Web site. We recommend that you do not solely rely on the information presented and that you always read labels, warnings, and directions before using or consuming a product. For additional information about a product, please contact the manufacturer. Content on this site is for reference purposes and is not intended to substitute for advice given by a physician, pharmacist, or other licensed health-care professional. You should not use this information as self-diagnosis or for treating a health problem or disease. Contact your health-care provider immediately if you suspect that you have a medical problem. Information and statements regarding dietary supplements have not been evaluated by the Food and Drug Administration and are not intended to diagnose, treat, cure, or prevent any disease or health condition. AmazonFresh assumes no liability for inaccuracies or misstatements about products.
+      </div>
+     </div>
+     <div id="inlineCartColumn" class="column">
+      <div id="bigRadishDiv">
+       <div id="bigRadishResults">
+       </div>
+      </div>
+      <iframe id="shopping-cart" name="shopping-cart" class="droppable" src="ShoppingCartView" height="100%" frameborder="0" scrolling="no">
+      </iframe>
+      <div class="cartMerch" id="wishlistTeaserWrapper">
+       <div class="shovelerWidget taggable tag-hasOrdered tag-neverOrdered tag-unrecognized" id="undercart_best_vegetables">
+        <input type="hidden" name="tags" value="tag-hasOrdered tag-neverOrdered tag-unrecognized" />
+        <input type="hidden" name="displayType" value="underCart" />
+        <input type="hidden" name="query" value="browseNode=334054011&amp;sort=produce_rating" />
+        <input type="hidden" name="type" value="search" />
+        <input type="hidden" name="header" value="Shop our best vegetables" />
+        <input type="hidden" name="csTag" value="&amp;pf_rd_s=footer-1&amp;pf_rd_p=1347168642&amp;pf_rd_t=101&amp;pf_rd_i=21&amp;pf_rd_r=1QWGX5J6E587M89Y10M6" />
+        <input type="hidden" class="csTag" name="pf_rd_s" value="footer-1" />
+        <input type="hidden" class="csTag" name="pf_rd_p" value="1347168642" />
+        <input type="hidden" class="csTag" name="pf_rd_t" value="101" />
+        <input type="hidden" class="csTag" name="pf_rd_i" value="21" />
+        <input type="hidden" class="csTag" name="pf_rd_r" value="1QWGX5J6E587M89Y10M6" />
+       </div>
+      </div>
+     </div>
+    </div>
+    <!-- BEGIN FOOTER -->
+    <div id="footer">
+     <div class="sendProductRequest">
+      Feel free to send us a
+      <a href="http://fresh.amazon.com/suggestItem">
+       product request
+      </a>
+      if we don't carry what you're looking for.
+     </div>
+     <div class="wonderBar">
+      View or change your orders in
+      <a href="https://fresh.amazon.com/Account">
+       Your Account
+      </a>
+      .
+      <div class="search">
+       <form method="get" action="Search">
+        <input name="input" size="40" type="search" results="5" autosave="fresh.amazon.com" />
+        <input value="Search" type="submit" />
+       </form>
+      </div>
+      <div class="tiny">
+       <a href="http://fresh.amazon.com/Conditions">
+        Conditions of Use
+       </a>
+       |
+       <a href="http://fresh.amazon.com/Privacy">
+        Privacy Notice
+       </a>
+       |
+       <a href="http://fresh.amazon.com/jobs">
+        Careers
+       </a>
+       &copy; 2007-2012 AmazonFresh, LLC or its affiliates
+      </div>
+      <div class="soldByShipsFrom">
+       <p>
+        All items sold by and ship from
+        <strong>
+         AmazonFresh
+        </strong>
+       </p>
+      </div>
+     </div>
+    </div>
+    <!-- END FOOTER -->
+   </div>
+  </div>
+ </body>
+</html>
