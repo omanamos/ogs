@@ -12,3 +12,4 @@ Category Notes:
 ----------------------------
 Investigate grocery items that don't have 3 categories. Are they included in the sql query that loads the grocery inventory? Should they be?
 
+START HERE: fix build errors, IngredientMatcher.java, Inventory.java, Ingredient.java

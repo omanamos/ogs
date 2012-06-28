@@ -5,7 +5,8 @@ import java.util.Set;
 
 import com.google.common.collect.Sets;
 
-public class GroceryItemCategory implements Iterable<GroceryItem> {
+public class GroceryItemCategory implements Iterable<GroceryItem>,
+                                            Comparable<GroceryItemCategory> {
 
     private final String name;
     private final int level;
@@ -25,6 +26,13 @@ public class GroceryItemCategory implements Iterable<GroceryItem> {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public int compareTo(GroceryItemCategory other) {
+        Integer thisSize = new Integer(this.groceries.size());
+        Integer otherSize = new Integer(other.groceries.size());
+        return -thisSize.compareTo(otherSize);
     }
 
     @Override

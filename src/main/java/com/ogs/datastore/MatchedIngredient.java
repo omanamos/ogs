@@ -5,22 +5,24 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-public class MatchedIngredient extends Ingredient implements Iterable<GroceryItem> {
-	
-	private List<GroceryItem> matches;
-	
-	@SuppressWarnings("unused")
-	private MatchedIngredient() { this(""); }
-	
-	private MatchedIngredient(String content) { this("", Lists.<GroceryItem>newArrayList()); }
-	
-	public MatchedIngredient(String content, List<GroceryItem> matches) {
-		super(content);
-		this.matches = Lists.newArrayList(matches);
-	}
+public class MatchedIngredient implements Iterable<MatchedGroceryItem> {
 
-	@Override
-	public Iterator<GroceryItem> iterator() {
-		return this.matches.iterator();
-	}
+    private Ingredient ingr;
+    private List<MatchedGroceryItem> matches;
+	
+    private MatchedIngredient() { }
+	
+    public MatchedIngredient(Ingredient ingr, List<MatchedGroceryItem> matches) {
+        this.ingr = ingr;
+        this.matches = Lists.newArrayList(matches);
+    }
+
+    public Ingredient getIngredient() {
+        return this.ingr;
+    }
+
+    @Override
+    public Iterator<MatchedGroceryItem> iterator() {
+        return this.matches.iterator();
+    }
 }

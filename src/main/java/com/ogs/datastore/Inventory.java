@@ -4,9 +4,12 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
@@ -20,14 +23,68 @@ public class Inventory {
         "c1.level = 1 and c2.level = 2;";
 
     private Set<GroceryItem> groceries;
+    private List<GroceryItemCategory> sortedCategories;
+
+    private Map<String, GroceryItem> groceryItemLookup;
+    private Map<String, List<GroceryItemCategory>> categoryLookup;
 
     private Inventory() {}
 
-    private Inventory(Set<GroceryItem> groceries) {
+    /**
+     * For use by the static constructor in this class only
+     * @param groceries set of grocery items
+     * @param sortedCategories set of grocery categories sorted in descending
+     * order wrt number of grocery items in any given category
+     */
+    private Inventory(Set<GroceryItem> groceries,
+                      List<GroceryItemCategory> sortedCategories) {
         this.groceries = groceries;
+        this.sortedCategories = sortedCategories;
+
+        this.groceryItemLookup = Maps.newHashMap();
+        for (GroceryItem item : this.groceries) {
+            this.groceryItemLookup.put(item.getName(), item);
+        }
+
+        this.categoryLookup = Maps.newHashMap();
+        for (GroceryItemCategory cat : this.sortedCategories) {
+            if (!this.categoryLookup.containsKey(cat.getName())) {
+                this.categoryLookup.put(cat.getName(),
+                                        Lists.<GroceryItemCategory>newArrayList());
+            }
+            this.categoryLookup.get(cat.getName()).add(cat);
+        }
     }
 
-    public static void buildFromSql(Connection conn) throws SQLException {
+    /**
+     * @param key string to look for exact match for in the grocery index
+     * @return matching grocery item, null otherwise
+     */
+    public GroceryItem lookUpByItemName(String key) {
+        return this.groceryItemLookup.get(key);        
+    }
+
+    /**
+     * @param key string to look for exact match for in the grocery category index
+     * @return matching grocery item, null otherwise
+     */
+    public List<GroceryItemCategory> lookUpByCategory(String key) {
+        return this.categoryLookup.get(key);
+    }
+
+    @Override
+    public String toString() {
+        return "Inventory:\n------------\nGrocery Size: " +
+            this.groceries.size() + "\nCategory Size: " +
+            this.sortedCategories.size();
+    }
+
+    /**
+     * @param conn connection to grocery inventory database
+     * @return Inventory object populated with data retrieved from given
+     * database connection
+     */
+    public static Inventory buildFromSql(Connection conn) throws SQLException {
         Statement stat = conn.createStatement();
         ResultSet rs = stat.executeQuery(SELECT_SQL);
         
@@ -52,5 +109,11 @@ public class Inventory {
                 // TODO: index categories somehow (order by category size?)
             }
         }
+        List<GroceryItemCategory> sortedCategories =
+            Lists.newArrayList(categories.keySet());
+        Collections.sort(sortedCategories);
+
+        Inventory rtn = new Inventory(inv, sortedCategories);
+        return rtn;
     }
 }

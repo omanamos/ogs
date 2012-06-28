@@ -8,7 +8,7 @@ import org.dom4j.Element;
 
 import com.google.common.collect.Lists;
 
-public class Recipe<E extends Ingredient> implements Iterable<E> {
+public class Recipe<E> implements Iterable<E> {
 	
 	private final String name;
 	private List<E> ingredients;
