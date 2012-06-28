@@ -1,0 +1,14 @@
+
+Problem: Take one recipe ingredient and provide scored matches from a grocery inventory list (GIL).
+
+Solution:
+1 - GIL is very dirty, need to clean it up and remove non-food items
+        -could be done through manual filtering, mechanical turk, filtering based on categories, etc
+2 - Write a script to view all grocery items in one category
+
+
+
+Category Notes:
+----------------------------
+Investigate grocery items that don't have 3 categories. Are they included in the sql query that loads the grocery inventory? Should they be?
+
