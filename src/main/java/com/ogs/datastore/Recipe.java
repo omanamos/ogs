@@ -33,7 +33,7 @@ public class Recipe<E> implements Iterable<E> {
 	@Override
 	public String toString() {
 		String rtn = "Name: " + this.name + "\nIngredients:";
-		for (Ingredient ingr : this.ingredients) {
+		for (E ingr : this.ingredients) {
 			rtn += "\n" + ingr.toString();
 		}
 		return rtn;

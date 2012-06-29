@@ -106,7 +106,6 @@ public class Inventory {
                 cat = categories.get(cat); // Retrieve object w/ data
                 cat.addItem(item);
                 item.addCategory(cat);
-                // TODO: index categories somehow (order by category size?)
             }
         }
         List<GroceryItemCategory> sortedCategories =

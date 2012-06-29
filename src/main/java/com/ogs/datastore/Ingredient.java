@@ -16,12 +16,12 @@ public class Ingredient {
         return content;
     }
 
-    public static Ingredient ingredientFromElement(Element element) {
-        return new Ingredient(element.getTextTrim());
-    }
-	
     @Override
     public String toString() {
         return content;
+    }
+
+    public static Ingredient ingredientFromElement(Element element) {
+        return new Ingredient(element.getTextTrim());
     }
 }

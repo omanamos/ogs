@@ -5,10 +5,9 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
+import com.google.common.collect.Maps;
 
 import com.ogs.datastore.GroceryItem;
 import com.ogs.datastore.GroceryItemCategory;
@@ -27,14 +26,21 @@ public class IngredientMatcher {
     }
 
     public List<MatchedGroceryItem> match(Ingredient ingr) {
-        Set<MatchedGroceryItem> matches = Sets.newHashSet();
-        // TODO: add hashcode in matchedgroceryitem
-        matches.add(this.getExactMatches(ingr));
+        Map<GroceryItem, MatchedGroceryItem> matches = Maps.newHashMap();
+        for (MatchedGroceryItem match : getExactMatches(ingr)) {
+            GroceryItem item = match.getGroceryItem();
+            if (!matches.containsKey(match.getGroceryItem())) {
+                matches.put(item, match);
+            } else {
+                matches.put(item, MatchedGroceryItem.union(match, matches.get(item)));
+            }
+        }
+        return Lists.newArrayList(matches.values());
     }
 
-    private Collection<GroceryItem> getExactMatches(Ingredient ingr) {
+    private Collection<MatchedGroceryItem> getExactMatches(Ingredient ingr) {
         // TODO: parse ingredient content
-        GroceryItem match = this.inventory.lookupByItemName(ingr.getContent());
+        GroceryItem match = this.inventory.lookUpByItemName(ingr.getContent());
         return Lists.newArrayList(new MatchedGroceryItem(match, 100.0));
     }
 }

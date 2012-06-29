@@ -11,8 +11,7 @@ public class Main {
                                                   SQLException {
         Class.forName("org.sqlite.JDBC");
         Connection conn =
-            DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Ryan\\" +
-                                        "Desktop\\Dev\\workspace\\data\\data");
+            DriverManager.getConnection("jdbc:sqlite:../data/data");
         Inventory inv = Inventory.buildFromSql(conn);
         System.out.println(inv);
     }

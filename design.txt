@@ -12,4 +12,20 @@ Category Notes:
 ----------------------------
 Investigate grocery items that don't have 3 categories. Are they included in the sql query that loads the grocery inventory? Should they be?
 
-START HERE: fix build errors, IngredientMatcher.java, Inventory.java, Ingredient.java
+Investigate grocery items that are duplicated. Are they errors?
+
+START HERE: IngredientMatcher.java, Inventory.java, Ingredient.java
+
+
+Useful: mvn exec:java -Dexec.mainClass="com.ogs.test.Main"
+
+
+Ingredient Grammar:
+-----------------------------------
+<ingredient> = "<quantity> <name>"
+<quantity> = "<quantifier>|<quantifier> <measurement>|<quantifier> (<quantity>) <measurement>"
+<quantifier> = "<number>|<number>/<number>"
+<measurement> = "<container>|<measuring instrument>"
+
+Use grammmar? Or just do word overlap lookup (use full grocery name so quantity also matches)
+    - need to break do word overlap wrt to a very simple grammar (ie keep "2 ounces" instead of breaking into "2" and "ounces")
