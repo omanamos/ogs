@@ -5,7 +5,7 @@ import java.util.Set;
 
 import com.google.common.collect.Sets;
 
-public class GroceryItemCategory implements Iterable<GroceryItem>,
+public class GroceryItemCategory implements HasName, Iterable<GroceryItem>,
                                             Comparable<GroceryItemCategory> {
 
     private final String name;

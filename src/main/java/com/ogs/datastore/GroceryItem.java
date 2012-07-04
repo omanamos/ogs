@@ -1,17 +1,25 @@
 package com.ogs.datastore;
 
-public class GroceryItem {
+import static com.ogs.grounder.Utils.cleanString;
+
+public class GroceryItem implements HasName {
 
     private final String name;
+    private final String originalName;
     private GroceryItemCategory[] categories;
 	
     public GroceryItem(String name) {
-        this.name = name;
+        this.originalName = name;
+        this.name = cleanString(name);
         this.categories = new GroceryItemCategory[3];
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getOriginalName() {
+        return this.originalName;
     }
 
     public GroceryItemCategory getCategory(int level) {
@@ -35,7 +43,7 @@ public class GroceryItem {
 	
     @Override
     public String toString() {
-        return name;
+        return originalName;
     }
 
     void addCategory(GroceryItemCategory cat) {

@@ -14,3 +14,13 @@ O:::::::OOO:::::::O       G:::::GGGGGGGG::::G     SSSSSSS     S:::::S
  OO:::::::::::::OO         GG:::::::::::::::G     S::::::SSSSSS:::::S
    OO:::::::::OO             GGG::::::GGG:::G     S:::::::::::::::SS 
      OOOOOOOOO                  GGGGGG   GGGG      SSSSSSSSSSSSSSS   
+
+
+This system implements a recipe to grocery item matching algorithm.
+
+Dependencies: Java JDK, Maven, Sqlite3, grocery database
+
+Put database in root repo directory
+
+To build & run, navigate to root project directory and run:
+mvn compile exec:java -Dexec.mainClass="com.ogs.test.Main"

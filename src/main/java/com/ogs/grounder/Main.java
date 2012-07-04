@@ -20,7 +20,7 @@ public class Main {
 		g.ground(recipes);
 	}
 	
-	private static Set<Recipe<Ingredient>> parseXml(String recipeFileName) {
+	public static Set<Recipe<Ingredient>> parseXml(String recipeFileName) {
 		Document document = null;
 		SAXReader reader = new SAXReader();
 		try

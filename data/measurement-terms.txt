@@ -2,8 +2,17 @@ t = tsp = teaspoon
 T = Tb = tbsp = tablespoon
 c = cu = cup
 oz = ounce
-fl oz = fluid ounce (liquid capacity)
+fl oz = fluid ounce
 pt = pint
 qt = quart
 gal = gallon
 lb = pound
+can
+box
+case
+bushel
+jar
+bag
+container
+bottle
+

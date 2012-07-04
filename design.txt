@@ -28,4 +28,4 @@ Ingredient Grammar:
 <measurement> = "<container>|<measuring instrument>"
 
 Use grammmar? Or just do word overlap lookup (use full grocery name so quantity also matches)
-    - need to break do word overlap wrt to a very simple grammar (ie keep "2 ounces" instead of breaking into "2" and "ounces")
+*****IMPT*****    - need to break do word overlap wrt to a very simple grammar (ie keep "2 ounces" instead of breaking into "2" and "ounces")

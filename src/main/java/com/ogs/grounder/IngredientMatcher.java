@@ -1,8 +1,11 @@
 package com.ogs.grounder;
 
+import static com.ogs.datastore.MatchedGroceryItem.MatchType;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -26,8 +29,19 @@ public class IngredientMatcher {
     }
 
     public List<MatchedGroceryItem> match(Ingredient ingr) {
+        // TODO: parse ingredient content
         Map<GroceryItem, MatchedGroceryItem> matches = Maps.newHashMap();
-        for (MatchedGroceryItem match : getExactMatches(ingr)) {
+        mergeMatches(matches, getExactMatches(ingr));
+        mergeMatches(matches, getWordOverlapMatches(ingr));
+
+        List<MatchedGroceryItem> rtn = Lists.newArrayList(matches.values());
+        Collections.sort(rtn);
+        return rtn;
+    }
+
+    private void mergeMatches(Map<GroceryItem, MatchedGroceryItem> matches,
+                              Collection<MatchedGroceryItem> newMatches) {
+        for (MatchedGroceryItem match : newMatches) {
             GroceryItem item = match.getGroceryItem();
             if (!matches.containsKey(match.getGroceryItem())) {
                 matches.put(item, match);
@@ -35,12 +49,19 @@ public class IngredientMatcher {
                 matches.put(item, MatchedGroceryItem.union(match, matches.get(item)));
             }
         }
-        return Lists.newArrayList(matches.values());
     }
 
     private Collection<MatchedGroceryItem> getExactMatches(Ingredient ingr) {
-        // TODO: parse ingredient content
         GroceryItem match = this.inventory.lookUpByItemName(ingr.getContent());
-        return Lists.newArrayList(new MatchedGroceryItem(match, 100.0));
+        if (match == null) {
+            return Lists.newArrayList();
+        } else {
+            return Lists.newArrayList(
+                       new MatchedGroceryItem(match, 100.0, MatchType.EXACT));
+        }
+    }
+
+    private Collection<MatchedGroceryItem> getWordOverlapMatches(Ingredient ingr) {
+        return this.inventory.lookUpByWord(ingr.getContent());
     }
 }
