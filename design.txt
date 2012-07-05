@@ -28,4 +28,15 @@ Ingredient Grammar:
 <measurement> = "<container>|<measuring instrument>"
 
 Use grammmar? Or just do word overlap lookup (use full grocery name so quantity also matches)
-*****IMPT*****    - need to break do word overlap wrt to a very simple grammar (ie keep "2 ounces" instead of breaking into "2" and "ounces")
+*****IMPT*****
+- need to break do word overlap wrt to a very simple grammar (ie keep "2 ounces" instead of breaking into "2" and "ounces")
+- need to convert words in ingredients to their lemmas to match (de-pluralize, etc)
+
+
+Next Step: Machine Learning
+--------------------------------
+- Can create training data the same way that google search creates training data
+- Input: Possible match, grocery item and ingredient
+- Features: matching words and their types (measurement term, number, proper noun, etc)...?
+- Output: Score to sort matches by
+- Possible Algorithms: Neural Network, Perceptron, ...?

@@ -10,57 +10,57 @@ import com.google.common.collect.Lists;
 
 public class Recipe<E> implements Iterable<E> {
 	
-	private final String name;
-	private List<E> ingredients;
+    private final String name;
+    private List<E> ingredients;
 	
-	@SuppressWarnings("unused")
+    @SuppressWarnings("unused")
 	private Recipe() { this(""); }
 	
-	public Recipe(String name) {
-		this.name = name;
-		this.ingredients = Lists.newArrayList();
-	}
+    public Recipe(String name) {
+        this.name = name;
+        this.ingredients = Lists.newArrayList();
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	@Override
+    @Override
 	public Iterator<E> iterator() {
-		return this.ingredients.iterator();
-	}
+        return this.ingredients.iterator();
+    }
 	
-	@Override
-	public String toString() {
-		String rtn = "Name: " + this.name + "\nIngredients:";
-		for (E ingr : this.ingredients) {
-			rtn += "\n" + ingr.toString();
-		}
-		return rtn;
-	}
+    @Override
+    public String toString() {
+        String rtn = "Name: " + this.name + "\nIngredients:";
+        for (E ingr : this.ingredients) {
+            rtn += "\n" + ingr.toString();
+        }
+        return rtn + "\n";
+    }
 	
-	private void addIngredient(E ingr) {
-		this.ingredients.add(ingr);
-	}
+    private void addIngredient(E ingr) {
+        this.ingredients.add(ingr);
+    }
 	
-	private void addIngredients(Collection<E> ingredients) {
-		this.ingredients.addAll(ingredients);
-	}
+    private void addIngredients(Collection<E> ingredients) {
+        this.ingredients.addAll(ingredients);
+    }
 	
-	public static Recipe<MatchedIngredient> buildMatchedRecipe(String name,
-			List<MatchedIngredient> ingredients) {
-		Recipe<MatchedIngredient> rtn = new Recipe<MatchedIngredient>(name);
-		rtn.addIngredients(ingredients);
-		return rtn;
-	}
+    public static Recipe<MatchedIngredient> buildMatchedRecipe(String name,
+            List<MatchedIngredient> ingredients) {
+        Recipe<MatchedIngredient> rtn = new Recipe<MatchedIngredient>(name);
+        rtn.addIngredients(ingredients);
+        return rtn;
+    }
 	
-	public static Recipe<Ingredient> recipeFromElement(Element element) {
-		String name = element.attributeValue("name");
-		Recipe<Ingredient> rtn = new Recipe<Ingredient>(name);
-		for (Iterator<Element> i = element.elementIterator(); i.hasNext();) {
-        	Element ingr = i.next();
-			rtn.addIngredient(Ingredient.ingredientFromElement(ingr));
-		}
-		return rtn;
-	}
+    public static Recipe<Ingredient> recipeFromElement(Element element) {
+        String name = element.attributeValue("name");
+        Recipe<Ingredient> rtn = new Recipe<Ingredient>(name);
+        for (Iterator<Element> i = element.elementIterator(); i.hasNext();) {
+            Element ingr = i.next();
+            rtn.addIngredient(Ingredient.ingredientFromElement(ingr));
+        }
+        return rtn;
+    }
 }

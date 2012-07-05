@@ -23,4 +23,7 @@ Dependencies: Java JDK, Maven, Sqlite3, grocery database
 Put database in root repo directory
 
 To build & run, navigate to root project directory and run:
+Interactive:
 mvn compile exec:java -Dexec.mainClass="com.ogs.test.Main"
+Batch Process:
+mvn compile exec:java -Dexec.mainClass="com.ogs.test.Main" -Dexec.args="-b <output path>"

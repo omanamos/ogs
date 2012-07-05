@@ -25,4 +25,16 @@ public class MatchedIngredient implements Iterable<MatchedGroceryItem> {
     public Iterator<MatchedGroceryItem> iterator() {
         return this.matches.iterator();
     }
+
+    @Override
+    public String toString() {
+        String rtn = "Ingredient: " + ingr.toString() + "\nMatches:\n";
+        int cnt = 0;
+        for (MatchedGroceryItem match : this.matches) {
+            rtn += match.toString() + "\n";
+            cnt++;
+            if (cnt > 10) break;
+        }
+        return rtn;
+    }
 }

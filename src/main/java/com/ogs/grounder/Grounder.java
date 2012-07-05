@@ -24,8 +24,7 @@ public class Grounder {
     public Grounder() throws ClassNotFoundException, SQLException {
         Class.forName("org.sqlite.JDBC");
         Connection conn =
-            DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Ryan\\Desktop\\Dev" +
-                                        "\\workspace\\data\\data");
+            DriverManager.getConnection("jdbc:sqlite:database");
         this.matcher = new IngredientMatcher(conn);
     }
 	
