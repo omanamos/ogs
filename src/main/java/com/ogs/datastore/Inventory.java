@@ -1,6 +1,7 @@
 package com.ogs.datastore;
 
 import static com.ogs.datastore.MatchedGroceryItem.MatchType;
+import static com.ogs.datastore.Utils.COMMON_WORDS;
 import static com.ogs.grounder.Utils.cleanString;
 
 import java.io.File;
@@ -27,7 +28,6 @@ public class Inventory {
         "on f.asin = c0.asin join fresh_categories c1 on f.asin = c1.asin " +
         "join fresh_categories c2 on f.asin = c2.asin where c0.level = 0 and " +
         "c1.level = 1 and c2.level = 2;";
-    private static final Set<String> COMMON_WORDS = loadCommonWords("data/");
 
     private Set<GroceryItem> groceries;
     private List<GroceryItemCategory> sortedCategories;
@@ -116,6 +116,7 @@ public class Inventory {
             Set<GroceryItem> matches = this.groceryItemWordLookup.get(token);
             if (matches != null) {
                 double score;
+                int start_index = key.indexOf(token);
                 if (COMMON_WORDS.contains(token)) {
                     score = 5.0;
                 } else if (token.matches("^[0-9]+$")) {
@@ -180,23 +181,6 @@ public class Inventory {
         Collections.sort(sortedCategories);
 
         Inventory rtn = new Inventory(inv, sortedCategories);
-        return rtn;
-    }
-
-    // TODO: include cooking terms in this
-    private static Set<String> loadCommonWords(String path) {
-        Set<String> rtn = Sets.newHashSet();
-        try {
-            Scanner s = new Scanner(new File(path + "measurement-terms.txt"));
-            while (s.hasNextLine()) {
-                String line = s.nextLine();
-                for (String word : line.split("=")) {
-                    rtn.add(word.trim().toLowerCase());
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         return rtn;
     }
 }

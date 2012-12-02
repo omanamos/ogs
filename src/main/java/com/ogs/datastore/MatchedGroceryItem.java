@@ -8,21 +8,23 @@ public class MatchedGroceryItem implements Comparable<MatchedGroceryItem> {
 
     public enum MatchType { EXACT, OVERLAP };
 
+    private Query query;
     private GroceryItem item;
     private double score;
     private Set<MatchType> types;
 
     private MatchedGroceryItem() {}
 
-    public MatchedGroceryItem(GroceryItem item, double score, MatchType type) {
-        this(item, score, Sets.newHashSet(type));
+    public MatchedGroceryItem(Query query, GroceryItem item, MatchType type) {
+        this(query, item, score, Sets.newHashSet(type));
     }
 
-    public MatchedGroceryItem(GroceryItem item, double score,
+    public MatchedGroceryItem(Query query, GroceryItem item, double score,
                               Set<MatchType> types) {
-        if (item == null || types == null) {
+        if (query == null || item == null || types == null) {
             throw new IllegalArgumentException("Item and type must be non-null");
         }
+        this.query = query;
         this.item = item;
         this.score = score;
         this.types = Sets.newHashSet(types);

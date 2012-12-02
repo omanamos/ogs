@@ -18,7 +18,7 @@ O:::::::OOO:::::::O       G:::::GGGGGGGG::::G     SSSSSSS     S:::::S
 
 This system implements a recipe to grocery item matching algorithm.
 
-Dependencies: Java JDK, Maven, Sqlite3, grocery database
+Dependencies: Sun Java JDK, Maven, Sqlite3, grocery database
 
 Put database in root repo directory
 
